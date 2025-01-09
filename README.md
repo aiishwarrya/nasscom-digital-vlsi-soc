@@ -92,6 +92,69 @@ Percentage\ of\ DFFs = 0.108429685 \times 100 = 10.84296854\%
 <details>
 <summary><h2><strong>📚 Theory for Day 2</strong></h2></summary>
 
+The floorplanning phase in VLSI design is crucial to ensure efficient chip design and functionality. 
+
+- A **good floorplan** minimizes wire length, improves performance, and reduces power consumption.
+- A **bad floorplan** can lead to congestion, delays, and inefficiencies.
+
+Floorplanning involves defining regions for:
+- Core logic
+- Input/Output (I/O) pads
+- Other design elements within the chip layout
+
+**Library cells** are pre-designed, pre-verified logic components provided in standard cell libraries.  
+These cells include:
+- Basic logic gates
+- Flip-flops
+- Multiplexers  
+
+These cells are optimized for specific process technologies such as SKY130 and serve as the building blocks for integrated circuits.
+
+---
+
+## SKY130_D2_SK1 - Chip Floor Planning Considerations
+
+Chip floor planning considerations focus on organizing the placement of various blocks and cells to ensure optimal functionality, performance, and manufacturability.  
+
+Key factors to consider:  
+1. **Area Optimization:** Efficient use of silicon area to balance complexity and cost.  
+2. **Routing Congestion:** Avoiding overcrowded regions to prevent delays and crosstalk.  
+3. **Power Distribution:** Proper placement of power grids and decoupling capacitors to maintain power integrity.  
+4. **Thermal Management:** Distributing components to minimize hotspots and ensure thermal balance.  
+5. **I/O Placement:** Strategically placing input/output pads to reduce signal delays and ease external connectivity.
+
+An ideal floorplan ensures proper balance among these considerations, resulting in a robust and efficient chip design.
+
+---
+
+## SKY_L1 - Utilization Factor and Aspect Ratio
+
+
+#### **1. Utilization Factor (UF):**  
+The utilization factor is defined as the ratio of the total area occupied by logic cells to the total core area of the chip.
+
+**Formula:**  
+**UF = (Total Logic Cell Area) / (Total Core Area)**
+
+- A **high utilization factor** (e.g., 80%) indicates efficient use of silicon but may cause routing congestion.
+- A **low utilization factor** provides more space for routing but may increase chip size.
+
+#### **2. Aspect Ratio (AR):**  
+The aspect ratio defines the proportions of the core area and is expressed as the ratio of the core height to its width.
+
+**Formula:**  
+**AR = (Core Height) / (Core Width)**
+
+- **AR = 1:** Indicates a square layout, ideal for uniform routing.
+- **AR ≠ 1:** May result in challenges in power distribution and signal integrity.
+
+Designers aim for:
+- A utilization factor between **50% to 80%**.
+- An aspect ratio close to **1** to achieve an optimal floorplan and reduce design complexity.
+
+---
+
+
 
 
 </details>
