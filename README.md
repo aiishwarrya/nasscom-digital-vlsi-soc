@@ -1,4 +1,9 @@
+<div align="center">
+
 # Digital VLSI SoC Design and Planning (8th January to 22nd January)
+
+</div>
+
 
 ## Section 1: SKY130 Day 1 - Inception of Open-source EDA, OpenLANE, and SKY130 PDK
 
