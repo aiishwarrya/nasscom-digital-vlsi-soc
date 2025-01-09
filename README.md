@@ -49,7 +49,7 @@ exit
 ```
 
 ### Screenshots of Running Commands
-*(Include screenshots here)*
+![Command 1](https://github.com/username/repo-name/blob/main/screenshots/command1.png)
 
 ### 2. Calculate the Flop Ratio and Percentage of DFFs
 #### Synthesis Statistics Report
