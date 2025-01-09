@@ -54,13 +54,13 @@ exit
 ![Command 3](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/ss3.png)
 ![Command 4](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/ss4.png)
 ![Command 5](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/ss5.png)
-![Command 6](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/ss5.png)
+![Command 6](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/ss6.png)
 
 
 ### 2. Calculate the Flop Ratio and Percentage of DFFs
 #### Synthesis Statistics Report
-*(Include screenshots of the synthesis statistics report with required values highlighted)*
-
+![table showing D flipflops and number of cells](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/ss7.png)
+![changes done in the syntheisis,results](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/ss8.png)
 #### Calculation of Flop Ratio and DFF Percentage
 ```math
 Flop\ Ratio = \frac{1613}{14876} = 0.108429685
