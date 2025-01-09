@@ -153,8 +153,17 @@ Designers aim for:
 - An aspect ratio close to **1** to achieve an optimal floorplan and reduce design complexity.
 
 ---
+## SKY_L2 - Concept of Pre-Placed Cells
 
+Pre-placed cells are essential blocks positioned in fixed locations during the floorplanning stage to optimize chip functionality and layout.  
 
+#### Key Characteristics:
+- **Fixed Locations:** These cells, such as macros, memory blocks, or I/O pads, are placed early in the design process.  
+- **Routing Optimization:** Helps to streamline routing paths and minimize congestion.  
+- **Critical Components:** Often include high-power or performance-critical blocks that influence the overall chip design.  
 
+Proper placement of pre-placed cells ensures better utilization, reduced delays, and improved chip performance.
+
+---
 
 </details>
