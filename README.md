@@ -86,3 +86,12 @@ Percentage\ of\ DFFs = 0.108429685 \times 100 = 10.84296854\%
 - Gained hands-on experience with OpenLANE for synthesis.
 - Learned to calculate flop ratios and analyze synthesis reports.
 - Understood the importance of open-source EDA tools in VLSI workflows.
+
+## Section 2: Sky130 Day 2 - Good floorplan vs bad floorplan and introduction to library cells
+
+<details>
+<summary><h2><strong>📚 Theory for Day 2</strong></h2></summary>
+
+
+
+</details>
