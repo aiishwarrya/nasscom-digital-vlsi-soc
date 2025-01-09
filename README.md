@@ -169,7 +169,6 @@ Proper placement of pre-placed cells ensures better utilization, reduced delays,
 ---
 ## SKY_L3 - De-Coupling Capacitors
 
-### Theory:
 De-coupling capacitors (decaps) are used in integrated circuits to stabilize the power supply and reduce noise in the design.
 
 #### Key Characteristics:
