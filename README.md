@@ -167,5 +167,27 @@ Pre-placed cells are essential blocks positioned in fixed locations during the f
 Proper placement of pre-placed cells ensures better utilization, reduced delays, and improved chip performance.
 
 ---
+## SKY_L3 - De-Coupling Capacitors
+
+### Theory:
+De-coupling capacitors (decaps) are used in integrated circuits to stabilize the power supply and reduce noise in the design.
+
+#### Key Characteristics:
+- **Power Stabilization:** They act as local energy reservoirs, supplying current to circuits during transient operations.  
+- **Noise Reduction:** Decaps help filter out voltage spikes and reduce electromagnetic interference (EMI).  
+- **Placement:** Typically placed close to critical components like macros, clock generators, or power-hungry logic.  
+
+By providing a stable voltage supply, decoupling capacitors ensure consistent performance across the chip.
+
+### Noise Margin Summary:
+Noise margin is a measure of a circuit's ability to tolerate noise without compromising its logical operation.  
+- **Key Parameters:**
+  - **NMH (Noise Margin High):** The difference between the minimum output high voltage and the minimum input high voltage required by the next stage.  
+  - **NML (Noise Margin Low):** The difference between the maximum output low voltage and the maximum input low voltage required by the next stage.  
+- **Importance:** A higher noise margin ensures better immunity to noise, improving the robustness of the circuit.  
+
+The incorporation of decoupling capacitors aids in maintaining proper noise margins by stabilizing the supply voltage.
+
+---
 
 </details>
