@@ -2,6 +2,14 @@
 
 ## Section 1: SKY130 Day 1 - Inception of Open-source EDA, OpenLANE, and SKY130 PDK
 
+<details>
+<summary><h2><strong>📚 Theory for Day 1</strong></h2></summary>
+
+
+
+</details>
+
+
 ## Implementation
 
 ### Tasks
