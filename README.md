@@ -78,6 +78,8 @@ exit
 ```math
 Flop\ Ratio = \frac{1613}{14876} = 0.108429685
 ```
+
+
 ```math
 Percentage\ of\ DFFs = 0.108429685 \times 100 = 10.84296854\%
 ```
