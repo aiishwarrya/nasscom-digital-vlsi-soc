@@ -316,10 +316,11 @@ run_floorplan
 #### Commands to Load Floorplan DEF:
 ```bash
 # Change directory to the generated floorplan DEF path
-cd ~/tools/openlane/designs/picorv32a/runs/17-03_12-06/results/floorplan/
+cd /home/vsduser/09-01_09-59/results/floorplan
 
 # Load the DEF file in Magic tool
-magic -T ~/tools/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+
 ```
 
 #### Observations in Magic:
