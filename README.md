@@ -4,7 +4,7 @@
 
 </div>
 
-
+---
 ## Section 1: SKY130 Day 1 - Inception of Open-source EDA, OpenLANE, and SKY130 PDK
 
 <details>
@@ -14,9 +14,7 @@
 
 </details>
 
-
 ## Implementation
-
 ### Tasks
 1. Run the `picorv32a` design synthesis using the OpenLANE flow and generate necessary outputs.
 2. Calculate the flop ratio and the percentage of D Flip-Flops (DFFs).
@@ -32,6 +30,8 @@ Percentage\ of\ DFFs = Flop\ Ratio \times 100
 
 All logs, reports, and results for Section 1 can be found in the following run folder: 
 [Download Logs and Reports](https://drive.google.com/drive/folders/1pE5U-MDwS9-30--uNBwj4ezLeI0nOAl6)
+
+---
 
 ### 1. Run picorv32a Design Synthesis Using OpenLANE Flow
 Commands to Invoke the OpenLANE Flow and Perform Synthesis:
@@ -60,7 +60,7 @@ exit
 # Exit the Docker container
 exit
 ```
-
+---
 ### Screenshots of Running Commands
 ![Command 1](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/ss1.png)
 ![Command 2](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/ss2.png)
@@ -69,7 +69,7 @@ exit
 ![Command 5](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/ss5.png)
 ![Command 6](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/ss6.png)
 
-
+---
 ### 2. Calculate the Flop Ratio and Percentage of DFFs
 #### Synthesis Statistics Report
 ![table showing D flipflops and number of cells](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/ss7.png)
@@ -88,7 +88,7 @@ Percentage\ of\ DFFs = 0.108429685 \times 100 = 10.84296854\%
 - Gained hands-on experience with OpenLANE for synthesis.
 - Learned to calculate flop ratios and analyze synthesis reports.
 - Understood the importance of open-source EDA tools in VLSI workflows.
-
+---
 ## Section 2: Sky130 Day 2 - Good floorplan vs bad floorplan and introduction to library cells
 
 <details>
@@ -249,3 +249,86 @@ Pin placement and logical cell placement blockage are critical considerations in
 ---
 
 </details>
+
+## Implementation of SKY_L5 - Pin placement and logical cell placement blockage to SKY_L8 - Review floorplan layout in Magic
+
+### Section 2 Tasks:
+1. **Run `picorv32a` design floorplan using OpenLANE flow and generate necessary outputs.**
+2. **Calculate the die area in microns from the values in the floorplan DEF file.**
+3. **Load the generated floorplan DEF file into the Magic tool and explore the floorplan layout.**
+
+---
+
+### 1. Run `picorv32a` Design Floorplan Using OpenLANE Flow
+
+#### Commands to invoke OpenLANE flow and perform floorplan:
+```bash
+# Change directory to OpenLANE flow directory
+cd ~/tools/openlane
+
+# Enter the OpenLANE Docker container
+docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21
+
+# Launch OpenLANE in interactive mode
+./flow.tcl -interactive
+
+# Load the required OpenLANE package
+package require openlane 0.9
+
+# Prepare the design for floorplan
+prep -design picorv32a
+
+# Run synthesis
+run_synthesis
+
+# Execute the floorplan
+run_floorplan
+```
+
+#### **Screenshot Outputs:**
+- Screenshot of floorplan run (Attach the screenshots at appropriate sections).  
+
+---
+
+### 2. Calculate Die Area in Microns from the Floorplan DEF Values
+
+#### Floorplan DEF Observations:
+- **Unit Distance:** 1000 = 1 micron  
+- **Die Width (in unit distance):**  
+  660685 - 0 = **660685**  
+- **Die Height (in unit distance):**  
+  671405 - 0 = **671405**  
+- **Conversion to microns:**  
+  - **Die Width (in microns):**  
+    Die Width = 660685 / 1000 = **660.685 μm**  
+  - **Die Height (in microns):**  
+    Die Height = 671405 / 1000 = **671.405 μm**  
+- **Area of Die (in square microns):**  
+  Area = 660.685 × 671.405 = **443587.212425 μm²**
+
+#### **Screenshot Outputs:**
+- Screenshot of floorplan DEF values.
+
+---
+
+### 3. Load Generated Floorplan DEF in Magic Tool
+
+#### Commands to Load Floorplan DEF:
+```bash
+# Change directory to the generated floorplan DEF path
+cd ~/tools/openlane/designs/picorv32a/runs/17-03_12-06/results/floorplan/
+
+# Load the DEF file in Magic tool
+magic -T ~/tools/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+```
+
+#### Observations in Magic:
+- Equidistant placement of ports
+- Decap cells and tap cells  
+- Diagonally equidistant tap cells  
+- Unplaced standard cells at the origin  
+
+#### **Screenshot Outputs:**
+- Magic visualization of the floorplan (Attach screenshots with annotations).  
+
+---
