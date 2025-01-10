@@ -286,7 +286,7 @@ run_floorplan
 ```
 
 #### **Screenshot Outputs:**
-- Screenshot of floorplan run (Attach the screenshots at appropriate sections).  
+![Floorplan run](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-1.png)
 
 ---
 
@@ -307,7 +307,7 @@ run_floorplan
   Area = 660.685 × 671.405 = **443587.212425 μm²**
 
 #### **Screenshot Outputs:**
-- Screenshot of floorplan DEF values.
+![DEF Observations](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-2.png)
 
 ---
 
@@ -329,6 +329,13 @@ magic -T ~/tools/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/me
 - Unplaced standard cells at the origin  
 
 #### **Screenshot Outputs:**
-- Magic visualization of the floorplan (Attach screenshots with annotations).  
+- Magic visualization of the floorplan
+![DEF Observations](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-3.png)
+![DEF Observations](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-4.png)  
+![DEF Observations](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-5.png)
+![DEF Observations](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-6.png)
+![DEF Observations](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-7.png)
+![DEF Observations](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-8.png)
+![DEF Observations](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-9.png)
 
 ---
