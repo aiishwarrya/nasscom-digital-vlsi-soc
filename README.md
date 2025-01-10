@@ -188,5 +188,36 @@ Noise margin is a measure of a circuit's ability to tolerate noise without compr
 The incorporation of decoupling capacitors aids in maintaining proper noise margins by stabilizing the supply voltage.
 
 ---
+## SKY_L4 - Power Planning
+
+Power planning is a critical aspect of chip design that ensures a stable power supply to all components. Poor power planning can lead to issues such as ground bounce and voltage droop, which affect the circuit's functionality and reliability.
+
+#### Key Issues in Power Planning:
+1. **Ground Bounce:**
+   - Occurs when multiple circuits switch simultaneously, causing transient currents in the ground network.
+   - Results in a temporary increase in ground voltage, affecting signal integrity.
+
+2. **Voltage Droop:**
+   - Happens when the supply voltage dips below the required level due to high current demand or resistance in the power network.
+   - Can lead to incorrect logic operation or circuit malfunction.
+
+#### Solution: Providing Multiple VDD and VSS:
+- **Multiple Power Rails:**
+  - Distributing multiple VDD (power) and VSS (ground) rails across the chip reduces the resistance in the power network.
+  - Helps in spreading the current evenly, minimizing ground bounce and voltage droop.
+
+- **Dedicated Power Stripes:**
+  - Wide and low-resistance power stripes are added to carry current efficiently and maintain a stable power supply.
+
+- **Decoupling Capacitors:**
+  - Placed close to the logic blocks to provide instantaneous power and filter out noise in the supply.
+
+#### Benefits:
+- Ensures consistent power delivery to all parts of the chip.
+- Improves signal integrity and overall performance.
+- Reduces the likelihood of failures due to power-related issues.
+
+---
+
 
 </details>
