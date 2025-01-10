@@ -331,11 +331,17 @@ magic -T ~/tools/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/me
 #### **Screenshot Outputs:**
 - Magic visualization of the floorplan
 ![DEF Observations](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-3.png)
+
 ![DEF Observations](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-4.png)  
+
 ![DEF Observations](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-5.png)
+
 ![DEF Observations](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-6.png)
+
 ![DEF Observations](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-7.png)
+
 ![DEF Observations](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-8.png)
+
 ![DEF Observations](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day2-9.png)
 
 ---
