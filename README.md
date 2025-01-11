@@ -677,8 +677,64 @@ By following the above steps, we successfully ran congestion-aware placement for
 
 This section begins with a revision of IO placer concepts and their practical implementation.
 
+---
+
+### SKY_L1 - SPICE Deck Creation for CMOS Inverter
+
+#### Key Concepts:
+#### 1. **SPICE Deck Composition**:  
+   The SPICE deck is a netlist defining the circuit's components, their connectivity, and simulation parameters. For a CMOS inverter, it includes:  
+   - **PMOS and NMOS Transistors**: Defines their parameters like width (W) and length (L).  
+   - **Output Load Capacitor**: Represents the load driven by the inverter.  
+
+#### 2. **Steps for SPICE Deck Creation**:  
+   - **Component Connectivity**: Establish connections between PMOS, NMOS, input node, output node, and supply voltages.  
+   - **Component Values**: Assign proper values for transistor dimensions, load capacitance, and supply voltages.  
+   - **Identifying Nodes**: Define nodes for input, output, VDD, GND, and internal connections.  
+   - **Naming Nodes**: Use clear and consistent names for nodes to maintain readability and ease of debugging.  
+   - **Writing the SPICE Deck**: Compile the component definitions, connectivity, and simulation commands into a single file.
+
+#### Summary:  
+Creating a SPICE deck is a critical step in circuit simulation, ensuring accurate representation of the CMOS inverter. Proper node identification, connectivity, and parameter assignment are essential for effective simulation and analysis.
+
+---
+
+### SKY_L2 - SPICE Simulation Lab for CMOS Inverter
+
+#### Key Concepts:
+In this step, we extend the SPICE deck from the previous section by including simulation commands and model files.
+
+#### 1. **Simulation Setup**:  
+   - **Cload, VDD, Vin**: The output load capacitor (Cload), supply voltage (VDD), and input voltage (Vin) are defined for the simulation.  
+   - **Simulation Commands**:  
+     - **.op**: Performs an operating point analysis to find the DC values of all nodes.  
+     - **.dc**: Runs a DC sweep to analyze the response of the circuit over a range of input voltages.  
+   - **Model Files**: Describes the characteristics of the PMOS and NMOS transistors for accurate simulation results.
+
+#### Summary:  
+This simulation step models the CMOS inverter’s behavior under different input conditions, helping to analyze its performance and optimize the design.
+
+---
+
+### SKY_L3 - Switching Threshold Vm
+
+#### Key Concepts:
+The video focuses on the evaluation of the static behavior of the CMOS inverter, particularly the **switching threshold (Vm)**.
+
+#### 1. **Static Behavior Evaluation**:  
+   - The switching threshold (Vm) is the input voltage at which the output voltage of the CMOS inverter transitions from low to high or vice versa.  
+   - Vm is crucial for determining the inverter's switching point, where the output voltage is approximately halfway between VDD and GND.
+
+#### 2. **Importance of Vm**:  
+   - Ensures proper operation of the inverter, defining the point where the inverter correctly switches states, avoiding issues like slow transitions or incorrect logic levels.
+
+#### Summary:  
+Evaluating the switching threshold helps to characterize the inverter's static performance and optimize its behavior for reliable operation in digital circuits.
+
+---
 
 </details>
+
 
 ## Implementation of SKY_L0 - IO Placer Revision
 
