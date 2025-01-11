@@ -413,7 +413,44 @@ The layout design step involves converting a circuit design into a physical layo
 This process bridges the gap between the circuit design and the physical layout. By leveraging network graphs and layout optimization techniques, the generated layout ensures manufacturability while meeting performance requirements.
 
 ---
+# SKY_L4 - Typical Characterization Flow
 
+The characterization flow ensures that a standard cell is accurately analyzed for its timing, power, and noise characteristics. This involves simulating its behavior under defined conditions.
+
+#### Steps in the Characterization Flow:
+
+#### 1. **Read Model Files**:  
+   - Load all required model files, including process-specific data from the SKY130 PDK.
+
+#### 2. **Read Extracted SPICE Netlist**:  
+   - Import the SPICE netlist of the designed cell for simulation.
+
+#### 3. **Define Buffer Behavior**:  
+   - Specify the functional behavior of the cell (e.g., inverter or buffer) to guide the simulation.
+
+#### 4. **Read Sub-Circuits**:  
+   - Include necessary sub-circuits for a complete and accurate simulation setup.
+
+#### 5. **Attach Power Sources**:  
+   - Add appropriate power and ground connections to mimic real operating conditions.
+
+#### 6. **Apply Stimulus**:  
+   - Provide input waveforms or signals to drive the cell.
+
+#### 7. **Provide Output Capacitance**:  
+   - Attach load capacitance to simulate the effect of connecting the cell to subsequent stages.
+
+#### 8. **Run Simulation Commands**:  
+   - Execute commands such as transient, AC, or DC simulations to evaluate cell behavior.
+
+#### Tools and Outputs:
+- **Tool Used**: GUNA software was employed for detailed characterization.  
+- **Outputs**: Timing, power, and noise characteristics were extracted and exported into `.lib` (library) files for integration into the standard-cell library.
+
+#### Summary:
+This characterization flow ensures the standard cell meets performance requirements and is ready for integration into digital design flows. GUNA aids in obtaining accurate results for timing, noise, and power analysis.
+
+---
 
 </details>
 
