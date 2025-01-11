@@ -748,13 +748,7 @@ set ::env(FP_IO_MODE) 2
 
 ## Implementation of SKY_L5 - Lab steps to git clone vsdstdcelldesign
 
-Here’s the content formatted for GitHub with the commands included:
-
-#### SKY_L5 - Lab Steps to Git Clone VSD Standard Cell Design
-
 This task involves cloning a GitHub repository containing a custom inverter standard cell design, exploring its layout in Magic, performing spice extraction, editing the spice model file, and running post-layout simulations.
-
----
 
 #### **Steps Implemented**:
 
