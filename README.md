@@ -458,6 +458,56 @@ Timing characterization evaluates critical parameters such as propagation delay,
 
 ---
 
+## SKY_L1 - Timing Threshold Definitions
+
+This section focuses on timing characterization and the critical timing threshold definitions used to evaluate signal transitions.
+
+#### Key Timing Threshold Definitions:
+#### 1. **Slew Low Rise Threshold (slew_low_rise_thr)**:  
+   Defines the lower voltage level for the rising edge of a signal transition.
+
+#### 2. **Slew High Rise Threshold (slew_high_rise_thr)**:  
+   Defines the upper voltage level for the rising edge of a signal transition.
+
+#### 3. **Slew Low Fall Threshold (slew_low_fall_thr)**:  
+   Indicates the lower voltage level for the falling edge of a signal transition.
+
+#### 4. **Slew High Fall Threshold (slew_high_fall_thr)**:  
+   Indicates the upper voltage level for the falling edge of a signal transition.
+
+These thresholds ensure precise timing analysis by identifying critical voltage points during signal transitions.
+
+#### Summary:  
+Understanding and defining timing thresholds is essential for accurate characterization of signal transitions. These parameters play a pivotal role in evaluating the performance of cells in digital designs.
+
+---
+
+## SKY_L2 - Propagation Delay and Transition Time
+
+This section covers propagation delay, the importance of threshold points, and key concepts related to transition times.
+
+#### Key Concepts:
+#### 1. **Propagation Delay**:  
+   The time taken for a signal to propagate from the input to the output of a cell. It is typically measured between specified threshold points, such as 50% of the input and output voltages.
+
+#### 2. **Importance of Threshold Points**:  
+   Threshold points, like 10%, 50%, and 90%, are crucial for accurate measurement of signal transitions and propagation delays, ensuring consistent timing analysis.
+
+#### 3. **Slew Formulas**:  
+   Slew rate determines how quickly a signal changes from one voltage level to another. It is calculated using the voltage difference over the time interval between threshold points.
+
+#### 4. **Transition Time**:  
+   - **Rise Transition**: The time it takes for the signal to rise from a lower threshold (e.g., 10%) to a higher threshold (e.g., 90%).  
+   - **Fall Transition**: The time it takes for the signal to fall from a higher threshold (e.g., 90%) to a lower threshold (e.g., 10%).
+
+#### 5. **Output Current and Voltage Waveform**:  
+   Introduction to the significance of output waveforms in characterizing a cell's timing behavior and analyzing its performance.
+
+#### Summary:  
+Understanding propagation delay and transition time is essential for precise timing analysis. These parameters play a critical role in evaluating signal integrity and ensuring robust circuit performance.
+
+---
+
 </details>
 
 ## Implementation of SKY130_D2_SK1 - SKY_L5 - Pin placement and logical cell placement blockage to SKY_L8 - Review floorplan layout in Magic
