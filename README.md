@@ -355,11 +355,11 @@ Libraries and their characterization are essential for achieving efficient and a
 
 By leveraging libraries and their detailed characterization, designers can efficiently navigate through logic synthesis, floorplanning, placement, CTS, routing, and STA to achieve high-quality VLSI designs.
 
+---
+
 ## SKY130_D2_SK3 - Cell Design and Characterization Flows
 
 This task involves the creation and evaluation of a standard cell, focusing on its layout design and performance characterization. The primary goal is to ensure the cell adheres to design rules and meets desired electrical parameters.
-
----
 
 #### Overview:
 
@@ -378,13 +378,41 @@ This task involves the creation and evaluation of a standard cell, focusing on i
      - **Output waveforms**: Verified functional correctness and signal integrity.
    - Timing parameters were extracted to prepare the cell for integration into the standard-cell library.
 
----
-
 #### Results:
 - Successfully designed and characterized the standard cell.
 - Verified compliance with DRC and functionality through simulations.
 
 This implementation lays the groundwork for integrating custom cells into a larger design flow.
+
+---
+
+## SKY_L3 - Layout Design Step
+
+The layout design step involves converting a circuit design into a physical layout that adheres to design rules, ensuring manufacturability and functionality.
+
+#### Overview:
+
+#### 1. **Network Graphs and Euler's Path**:
+   - Created network graphs for NMOS and PMOS configurations.
+   - Used Euler’s path to optimize the connectivity and layout topology for reduced complexity.
+
+#### 2. **Stick Diagram**:
+   - Translated the network graph into a stick diagram to visualize the arrangement of components and interconnections.
+   - Ensured proper alignment of layers and minimized overlaps.
+
+#### 3. **Layout Design in Magic**:
+   - Converted the stick diagram into a detailed layout using the Magic tool.
+   - Verified the layout with **Design Rule Check (DRC)** to ensure compliance with the SKY130 PDK design rules.
+
+#### 4. **Generating Outputs**:
+   - Exported the layout to:
+     - **GDSII File**: For physical design integration into the larger chip design.
+     - **SPICE Netlist (.cir)**: For electrical simulation and characterization.
+
+#### Summary:
+This process bridges the gap between the circuit design and the physical layout. By leveraging network graphs and layout optimization techniques, the generated layout ensures manufacturability while meeting performance requirements.
+
+---
 
 
 </details>
