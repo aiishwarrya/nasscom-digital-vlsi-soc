@@ -452,6 +452,12 @@ This characterization flow ensures the standard cell meets performance requireme
 
 ---
 
+## SKY130_D2_SK4 - General Timing Characterization Parameters
+
+Timing characterization evaluates critical parameters such as propagation delay, setup time, hold time, clock-to-Q delay, and transition time. These metrics ensure that cells perform reliably under varying conditions like input transitions and load capacitance. Tools like GUNA or SPICE are used to simulate and extract these parameters, with the results stored in `.lib` files for synthesis and static timing analysis (STA). Proper characterization forms the backbone of efficient and robust digital designs.
+
+---
+
 </details>
 
 ## Implementation of SKY130_D2_SK1 - SKY_L5 - Pin placement and logical cell placement blockage to SKY_L8 - Review floorplan layout in Magic
