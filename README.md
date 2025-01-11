@@ -671,7 +671,7 @@ By following the above steps, we successfully ran congestion-aware placement for
 
 <details>
 
-<summary><h2><strong>📚 Theory for Day 2</strong></h2></summary>
+<summary><h2><strong>📚 Theory for Day 3</strong></h2></summary>
 
 ## SKY130_D3_SK1 - Labs for CMOS Inverter ngspice Simulations
 
