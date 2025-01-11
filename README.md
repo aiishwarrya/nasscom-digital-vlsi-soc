@@ -5,7 +5,12 @@
 </div>
 
 ---
+
+<div align="center">
+  
 ## Section 1: SKY130 Day 1 - Inception of Open-source EDA, OpenLANE, and SKY130 PDK
+
+</div>
 
 <details>
 <summary><h2><strong>📚 Theory for Day 1</strong></h2></summary>
@@ -89,7 +94,12 @@ Percentage\ of\ DFFs = 0.108429685 \times 100 = 10.84296854\%
 - Learned to calculate flop ratios and analyze synthesis reports.
 - Understood the importance of open-source EDA tools in VLSI workflows.
 ---
+
+<div align="center">
+  
 ## Section 2: Sky130 Day 2 - Good floorplan vs bad floorplan and introduction to library cells
+
+</div>
 
 <details>
 <summary><h2><strong>📚 Theory for Day 2</strong></h2></summary>
@@ -667,7 +677,11 @@ By following the above steps, we successfully ran congestion-aware placement for
 
 ---
 
+<div align="center">
+
 ## Section 3: Sky130 Day 3 - Design library cell using Magic Layout and ngspice characterization
+
+</div>
 
 <details>
 
