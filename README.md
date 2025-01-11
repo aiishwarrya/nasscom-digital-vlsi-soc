@@ -675,12 +675,12 @@ This section begins with a revision of IO placer concepts and their practical im
 
 ### SKY_L0 - IO Placer Revision
 
-#### Implementation:
 To optimize the equidistant placement of cells during IO placement, we used the following command:
 
 ```bash
 set ::env(FP_IO_MODE) 2
 
+```
 
 
 
