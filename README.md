@@ -413,7 +413,7 @@ The layout design step involves converting a circuit design into a physical layo
 This process bridges the gap between the circuit design and the physical layout. By leveraging network graphs and layout optimization techniques, the generated layout ensures manufacturability while meeting performance requirements.
 
 ---
-# SKY_L4 - Typical Characterization Flow
+## SKY_L4 - Typical Characterization Flow
 
 The characterization flow ensures that a standard cell is accurately analyzed for its timing, power, and noise characteristics. This involves simulating its behavior under defined conditions.
 
