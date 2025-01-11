@@ -681,6 +681,7 @@ To optimize the equidistant placement of cells during IO placement, we used the 
 set ::env(FP_IO_MODE) 2
 
 ```
+![input change command](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-1.png)
 
 
 
