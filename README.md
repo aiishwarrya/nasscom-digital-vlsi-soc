@@ -665,15 +665,22 @@ This task involves running a congestion-aware placement of the `picorv32a` desig
 
 By following the above steps, we successfully ran congestion-aware placement for the `picorv32a` design, loaded the placement DEF in the Magic tool for visualization, and verified the standard cells' placement.
 
+---
+
 ## Section 3: Sky130 Day 3 - Design library cell using Magic Layout and ngspice characterization
+
+<details>
+
+<summary><h2><strong>📚 Theory for Day 2</strong></h2></summary>
 
 ## SKY130_D3_SK1 - Labs for CMOS Inverter ngspice Simulations
 
 This section begins with a revision of IO placer concepts and their practical implementation.
 
-## Implementation
 
-### SKY_L0 - IO Placer Revision
+</details>
+
+## Implementation of SKY_L0 - IO Placer Revision
 
 To optimize the equidistant placement of cells during IO placement, we used the following command:
 
