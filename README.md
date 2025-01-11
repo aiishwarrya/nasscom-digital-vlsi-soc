@@ -746,6 +746,75 @@ set ::env(FP_IO_MODE) 2
 ```
 ![input change command](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-1.png)
 
+## Implementation of SKY_L5 - Lab steps to git clone vsdstdcelldesign
+
+Here’s the content formatted for GitHub with the commands included:
+
+#### SKY_L5 - Lab Steps to Git Clone VSD Standard Cell Design
+
+This task involves cloning a GitHub repository containing a custom inverter standard cell design, exploring its layout in Magic, performing spice extraction, editing the spice model file, and running post-layout simulations.
+
+---
+
+#### **Steps Implemented**:
+
+#### **1. Clone the Custom Inverter Design**:
+- Clone the repository into the OpenLANE directory.
+  
+  ```bash
+  # Change directory to OpenLANE
+  cd Desktop/work/tools/openlane_working_dir/openlane
+
+  # Clone the repository with custom inverter design
+  git clone https://github.com/nickson-jose/vsdstdcelldesign
+
+  # Change into repository directory
+  cd vsdstdcelldesign
+  ```
+
+#### **2. Load Custom Inverter Layout**:
+- Copy the Magic `.tech` file to the repository directory for easy access.
+- Open the custom inverter layout in Magic.
+
+  ```bash
+  # Copy magic tech file to the repo directory
+  cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech .
+
+  # Check contents to ensure everything is present
+  ls
+
+  # Command to open custom inverter layout in Magic
+  magic -T sky130A.tech sky130_inv.mag &
+  ```
+
+#### **3. Perform Spice Extraction**:
+- Extract the SPICE netlist from the custom inverter layout in Magic for further analysis.
+
+#### **4. Post-Layout Simulation**:
+- Edit the extracted SPICE file to include appropriate models and parameters for simulation.
+- Run post-layout simulations using ngspice to analyze the inverter's behavior.
+
+#### **5. Debug DRC Issues**:
+- Identified and fixed problems in the Design Rule Check (DRC) section of the older Magic tech file for the SKY130 process.
+
+---
+
+### **Key Outputs**:
+- Successfully cloned the `vsdstdcelldesign` repository.
+- Opened and explored the custom inverter layout in Magic.
+- Extracted the SPICE netlist of the layout.
+- Performed accurate post-layout simulations using ngspice.
+
+  #### Screenshots of the following commands
+  
+![command run ](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-2.png)
+![command run](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-3.png)
+![command run](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-4.png)
+![command run](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-5.png)
+
+---
+
+
 
 
 
