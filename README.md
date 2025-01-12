@@ -747,6 +747,36 @@ Evaluating the switching threshold helps to characterize the inverter's static p
 
 ---
 
+## SKY130_D3_SK2 - Inception of Layout – CMOS Fabrication Process  
+
+### SKY_L1 - Create Active Regions  
+
+This section introduces the 16-mask CMOS fabrication process, focusing on the creation of active regions.
+
+#### **Steps in the Process**:  
+#### 1. **Select a Substrate**:  
+   Begin with a silicon wafer as the base material for the CMOS fabrication.  
+
+#### 2. **Create Active Regions**:  
+   Define areas for transistor activity using photolithography techniques.  
+
+#### 3. **Deposit Substances (e.g., Photoresist)**:  
+   Apply a thin layer of photoresist material to the wafer's surface for pattern definition.  
+
+#### 4. **Mask Removal**:  
+   Use photomasks to expose the photoresist selectively, enabling the patterning of active regions.  
+
+#### 5. **Resist Removal**:  
+   Chemically remove the exposed or unexposed photoresist, depending on the process (positive or negative resist).  
+
+#### 6. **LOCOS (Local Oxidation of Silicon)**:  
+   Perform LOCOS to isolate active regions and create field oxides.  
+
+#### **Summary**:  
+The creation of active regions is a fundamental step in the CMOS fabrication process. It involves substrate preparation, photolithography, and isolation techniques like LOCOS to define transistor areas precisely.
+
+---
+
 </details>
 
 
