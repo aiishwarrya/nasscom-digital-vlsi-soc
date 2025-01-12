@@ -798,6 +798,29 @@ The formation of N-well and P-well involves selective doping using boron and pho
 
 ---
 
+### SKY_L3 - Formation of Gate Terminal
+
+#### Key Steps:
+#### 1. Threshold Voltage Equation:  
+   - The threshold voltage equation is considered to ensure proper transistor operation.  
+   - Adjustments to doping concentration are made accordingly.  
+
+#### 2. Masking:  
+   - A mask is applied to define the regions where doping is to be introduced.  
+
+#### 3. Doping for NMOS and PMOS:  
+   - For NMOS: Boron is introduced through ion implantation, ensuring it remains on the surface.  
+   - For PMOS: A similar process is followed with appropriate dopants.  
+
+#### 4. Deposition of Poly-Silicon Layer:  
+   - A poly-silicon layer is deposited to serve as the gate terminal material.  
+   - A low-resistance layer is formed to ensure efficient current control and switching.
+
+### Summary:  
+The gate terminal formation process combines precise doping and material deposition to create a reliable control structure for transistors. It ensures optimal threshold voltage and enhances the electrical performance of the CMOS device.
+
+---
+
 </details>
 
 
