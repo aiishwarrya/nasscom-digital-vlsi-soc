@@ -776,6 +776,27 @@ This section introduces the 16-mask CMOS fabrication process, focusing on the cr
 The creation of active regions is a fundamental step in the CMOS fabrication process. It involves substrate preparation, photolithography, and isolation techniques like LOCOS to define transistor areas precisely.
 
 ---
+### SKY_L2 - Formation of N-Well and P-Well  
+
+This section discusses the formation of the N-well and P-well, crucial steps in the CMOS fabrication process.
+
+#### **Steps in the Process**:  
+#### 1. **Formation of P-Well**:  
+   - Boron ions are implanted into the substrate to create the P-well.  
+   - The process uses **ion implantation** to ensure precision.
+
+#### 2. **Formation of N-Well**:  
+   - Phosphorus ions are implanted into the substrate to create the N-well.  
+   - Similar to the P-well formation, ion implantation ensures accurate doping.  
+
+#### 3. **High-Temperature Furnace Process**:  
+   - The substrate undergoes a **twin-tub process** in a high-temperature furnace.  
+   - This step diffuses the dopants, forming the wells with proper depth and concentration.  
+
+#### **Summary**:  
+The formation of N-well and P-well involves selective doping using boron and phosphorus, respectively, followed by high-temperature treatment. These wells provide the foundation for CMOS transistors in the twin-tub process.
+
+---
 
 </details>
 
