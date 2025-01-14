@@ -841,6 +841,42 @@ LDD formation addresses critical challenges in CMOS technology, such as the hot 
 
 ---
 
+### SKY_L5 - Formation of Source and Drain
+
+#### Key Steps:
+#### 1. Addition of Screen Oxide:  
+   - A thin layer of screen oxide is deposited to prevent channeling during ion implantation.  
+
+#### 2. High-Temperature Furnace:  
+   - The wafer is subjected to a high-temperature furnace to activate the dopants and anneal the implanted regions.  
+
+#### Summary:  
+The formation of source and drain involves precise control of doping and thermal processing to ensure accurate transistor behavior and optimal performance.
+
+---
+
+### SKY_L6 - Local Interconnect Formation
+
+The process of local interconnect formation begins with the removal of thin oxide layers previously deposited over the Source and Drain (S, D) regions, opening these areas for contact. Titanium is then sputtered onto the wafer surface to facilitate the formation of interconnects. Following this, the wafer is subjected to high-temperature annealing, typically between 650 and 700 degrees Celsius, which results in the creation of titanium silicide (TiSi) at the contact regions. To ensure surface cleanliness and remove impurities, the wafer undergoes RCA cleaning as a final step. This sequence ensures reliable electrical connections for the Source and Drain, essential for device functionality.
+
+---
+
+### SKY_L7 - Higher Level Metal Formation
+
+#### 1. **Deposition of SiO₂**:  
+   A layer of silicon dioxide (SiO₂) is deposited, doped with phosphorus and boron for added protective properties.
+
+#### 2. **Planarization with CMP**:  
+   Chemical Mechanical Planarization (CMP) is performed to create a smooth and even surface.
+
+#### 3. **Drilling Contact Holes**:  
+   Contact holes are drilled into the SiO₂ layer to facilitate electrical connections.
+
+#### 4. **Aluminum Deposition**:  
+   An aluminum layer is deposited over the surface to complete the interconnection process, ensuring efficient electrical pathways.
+   
+---
+
 </details>
 
 
