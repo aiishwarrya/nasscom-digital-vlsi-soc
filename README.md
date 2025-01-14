@@ -987,6 +987,70 @@ ext2spice
 ![Extraction](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-8.png)
 ![Extraction](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-9.png)
 
+---
+
+## Implementation of SKY130_D3_SK3 - SKY_L1 - Lab steps to create final SPICE deck using Sky130 tech to SKY_L2 - Lab steps to characterize inverter using sky130 model files
+
+### SKY130_D3_SK3 - Lab steps to create final SPICE deck using Sky130 tech to SKY_L2 - Lab steps to characterize inverter using sky130 model files
+
+In this lab, we edited the SPICE model file to prepare it for analysis through simulation. The unit distance in the layout grid was also measured to ensure precision. Once the final SPICE file was edited, it was ready for ngspice simulation.
+
+#### 1. Editing the SPICE Model File
+After ensuring the layout grid was measured correctly, we edited the SPICE file for the inverter. This step prepares the file for further simulation and analysis. The final edited SPICE file was saved and set up for the ngspice simulation process.
+
+**Screenshots of the final edited SPICE file:**
+![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-10.png)
+
+#### 2. Post-layout ngspice Simulations
+The next step involved running the post-layout simulation using ngspice. We used the following commands to load the SPICE file and run the simulation:
+
+```bash
+ngspice sky130_inv.spice
+```
+
+After the simulation was loaded, we generated the plot of the output versus time using the following command:
+
+```bash
+plot y vs time a
+```
+
+**Screenshots from ngspice run:**
+![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-11.png)
+![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-12.png)
+
+#### 3. Generated Plot
+Once the ngspice simulation was complete, the plot was generated to visualize the results.
+
+**Screenshot of the generated plot:**
+![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-13.png)
+
+#### 4. Rise Transition Time Calculation
+The rise transition time was calculated by measuring the time it took for the output to rise from 20% to 80%. The results were as follows:
+
+**Rise Transition Time:**
+- Rise Time = T_80% - T_20% = 2.64 V - 660 mV = 0.06396 ns = 63.96 ps
+
+**Screenshots of the rise time:**
+![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-14.png)
+![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-20.png)
+![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-18.png)
+
+#### 6. Rise Cell Delay Calculation
+The rise cell delay was calculated by measuring the time for the output to rise from 50% to 50%, and the result was:
+
+**Rise Cell Delay:**
+- Rise Cell Delay = T_50% - T_50% = 2.21144 ns - 2.15008 ns = 0.06136 ns = 61.36 ps
+
+**Screenshots of the rise cell delay:**
+![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-16.png)
+![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-17.png)
+
+
+---
+
+
+
+
 
 
 
