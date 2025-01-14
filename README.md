@@ -821,6 +821,26 @@ The gate terminal formation process combines precise doping and material deposit
 
 ---
 
+### SKY_L4 - Lightly Doped Drain (LDD) Formation
+
+#### Key Steps:
+#### 1. Hot Electron Effect:  
+   - LDD formation helps mitigate the hot electron effect by reducing the electric field at the drain junction.  
+
+#### 2. Short Channel Effect:  
+   - LDD structures are designed to minimize the short channel effect in modern CMOS devices.  
+
+#### 3. Plasma Anisotropic Etching:  
+   - Plasma anisotropic etching is used to create precise patterns for the lightly doped regions.  
+
+#### 4. Side Wall Spacers:  
+   - Side wall spacers are introduced to separate the lightly doped regions from the heavily doped source and drain areas.  
+
+#### Summary:  
+LDD formation addresses critical challenges in CMOS technology, such as the hot electron effect and short channel effects, ensuring the reliability and performance of scaled-down transistors.
+
+---
+
 </details>
 
 
