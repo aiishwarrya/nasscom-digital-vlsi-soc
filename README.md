@@ -961,6 +961,19 @@ In this lab, we explore the layout of the inverter to identify PMOS and NMOS usi
 ![identifying pmos and nmos](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-6.png)
 ![identifying pmos and nmos](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-7.png)
 
+---
+## Implementation of SKY_L9 - Lab Steps to Create Standard Cell Layout and Extract SPICE Netlist
+
+This lab demonstrates the process of extracting the entire standard cell layout into a SPICE netlist using commands like `ext2spice`. The focus is on converting the physical layout into a SPICE-compatible format for further simulation and analysis.
+
+ #### Screenshots
+
+![Extraction](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-8.png)
+![Extraction](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-9.png)
+
+
+
+
 
 
 
