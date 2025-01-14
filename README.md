@@ -985,9 +985,7 @@ ext2spice
 
 ---
 
-## Implementation of SKY130_D3_SK3 - SKY_L1 - Lab steps to create final SPICE deck using Sky130 tech to SKY_L2 - Lab steps to characterize inverter using sky130 model files
-
-### SKY130_D3_SK3 - Lab steps to create final SPICE deck using Sky130 tech to SKY_L2 - Lab steps to characterize inverter using sky130 model files
+## Implementation of SKY130_D3_SK3 
 
 In this lab, we edited the SPICE model file to prepare it for analysis through simulation. The unit distance in the layout grid was also measured to ensure precision. Once the final SPICE file was edited, it was ready for ngspice simulation.
 
@@ -1044,6 +1042,102 @@ The rise cell delay was calculated by measuring the time for the output to rise 
 
 ---
 
+# Fixing DRC Issues in Skywater Process Magic Tech File
+
+This document provides step-by-step instructions to identify and correct issues in the DRC section of the Skywater process's old Magic tech file.
+
+## Reference Link
+- Sky130 Periphery Rules: [Skywater PDK Periphery Rules](https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html)
+
+## Steps to Reproduce and Fix DRC Issues
+
+### 1. Download and View Corrupted Skywater Process Magic Tech File
+
+```bash
+# Change to home directory
+cd
+
+# Download the lab files
+wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
+
+# Extract the compressed lab files
+tar xfz drc_tests.tgz
+
+# Change to the lab directory
+cd drc_tests
+
+# List all files in the current directory
+ls -al
+
+# View the .magicrc file
+gvim .magicrc
+
+# Open the Magic tool with better graphics
+magic -d XR &
+```
+
+#### Screenshots
+![commands](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-21.png)
+![commands](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-22.png)
+
+### 2. Issue: Incorrect Implementation of `poly.9` Rule
+
+#### Problem
+- The `poly.9` rule was not detecting violations for spacing < 0.48μ.
+
+#### Correction
+- Modified the rule in the `sky130A.tech` file to include proper spacing checks.
+
+```bash
+# Load the updated tech file in Magic
+tech load sky130A.tech
+
+# Re-run the DRC check to identify updated errors
+drc check
+
+# Select the region displaying errors and view messages
+drc why
+```
+
+#### Screenshots
+- loading poly
+![commands](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-25.png)
+- updating the `sky130A.tech`file
+![commands](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-29.png)
+- magic window with rule implemented
+![commands](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-30.png)
+
+### 3. Issue: Incorrect Implementation of `nwell.4` Rule
+
+#### Problem
+- The `nwell.4` rule did not detect missing taps in the `nwell` region.
+
+#### Correction
+- Updated the rule in the `sky130A.tech` file for accurate detection of missing taps.
+
+```bash
+# Load the updated tech file in Magic
+tech load sky130A.tech
+
+# Change the DRC style to full
+drc style drc(full)
+
+# Re-run the DRC check to identify updated errors
+drc check
+
+# Select the region displaying errors and view messages
+drc why
+```
+
+#### Screenshots
+- Updating `sky130A.tech` file to correct the error
+![commands](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-31.png)
+![commands](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-32.png)
+
+- Updated drc check
+![commands](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-33.png)
+
+---
 
 
 
