@@ -952,6 +952,16 @@ This task involves cloning a GitHub repository containing a custom inverter stan
 
 ---
 
+## Implementation of SKY_L8 - Lab introduction to Sky130 basic layers layout and LEF using inverter
+
+In this lab, we explore the layout of the inverter to identify PMOS and NMOS using the `%what` command in the `tkcon.tcl` window. The focus is on analyzing the connections between the components, verifying their placement, and understanding how basic layers are represented in the layout.
+
+ #### Screenshots
+
+![identifying pmos and nmos](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-6.png)
+![identifying pmos and nmos](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-7.png)
+
+
 
 
 
