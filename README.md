@@ -1030,6 +1030,7 @@ The rise transition time was calculated by measuring the time it took for the ou
 ![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-14.png)
 ![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-20.png)
 ![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-18.png)
+![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-19.png)
 
 ### 5. Rise Cell Delay Calculation
 The rise cell delay was calculated by measuring the time for the output to rise from 50% to 50%, and the result was:
