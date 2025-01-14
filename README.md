@@ -877,8 +877,22 @@ The process of local interconnect formation begins with the removal of thin oxid
    
 ---
 
-</details>
+## SKY130_D3_SK3 - Sky130 Tech File Labs
 
+#### Overview
+The SKY130_D3_SK3 lab series focuses on using the SkyWater 130nm technology file to perform simulations, layout design, and analysis. These labs include key steps like editing SPICE model files, running ngspice simulations, and analyzing the output for critical parameters.
+
+### SKY_L3 - Lab Introduction to Magic Tool Options and DRC Rules
+
+#### Summary
+
+This video lab introduced the **Magic tool** and its website contents. It provided an overview of:
+- **Magic Tool Options**: Basic commands, navigation, and setup for layout creation.
+- **DRC Rules**: Design Rule Checks, including the guidelines and parameters to ensure layouts adhere to fabrication constraints.
+  
+---
+
+</details>
 
 ## Implementation of SKY_L0 - IO Placer Revision
 
