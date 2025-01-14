@@ -925,24 +925,6 @@ This task involves cloning a GitHub repository containing a custom inverter stan
   magic -T sky130A.tech sky130_inv.mag &
   ```
 
-#### **3. Perform Spice Extraction**:
-- Extract the SPICE netlist from the custom inverter layout in Magic for further analysis.
-
-#### **4. Post-Layout Simulation**:
-- Edit the extracted SPICE file to include appropriate models and parameters for simulation.
-- Run post-layout simulations using ngspice to analyze the inverter's behavior.
-
-#### **5. Debug DRC Issues**:
-- Identified and fixed problems in the Design Rule Check (DRC) section of the older Magic tech file for the SKY130 process.
-
----
-
-### **Key Outputs**:
-- Successfully cloned the `vsdstdcelldesign` repository.
-- Opened and explored the custom inverter layout in Magic.
-- Extracted the SPICE netlist of the layout.
-- Performed accurate post-layout simulations using ngspice.
-
   #### Screenshots of the following commands
   
 ![command run ](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-2.png)
