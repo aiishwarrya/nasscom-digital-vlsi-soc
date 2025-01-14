@@ -964,7 +964,23 @@ In this lab, we explore the layout of the inverter to identify PMOS and NMOS usi
 ---
 ## Implementation of SKY_L9 - Lab Steps to Create Standard Cell Layout and Extract SPICE Netlist
 
-This lab demonstrates the process of extracting the entire standard cell layout into a SPICE netlist using commands like `ext2spice`. The focus is on converting the physical layout into a SPICE-compatible format for further simulation and analysis.
+This lab demonstrates the process of extracting the entire standard cell layout into a SPICE netlist using commands. The focus is on converting the physical layout into a SPICE-compatible format for further simulation and analysis.
+
+Commands for spice extraction of the custom inverter layout to be used in tkcon window of magic
+
+```tcl
+# Check current directory
+pwd
+
+# Extraction command to extract to .ext format
+extract all
+
+# Before converting ext to spice this command enable the parasitic extraction also
+ext2spice cthresh 0 rthresh 0
+
+# Converting to ext to spice
+ext2spice
+```
 
  #### Screenshots
 
