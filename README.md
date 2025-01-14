@@ -995,13 +995,13 @@ ext2spice
 
 In this lab, we edited the SPICE model file to prepare it for analysis through simulation. The unit distance in the layout grid was also measured to ensure precision. Once the final SPICE file was edited, it was ready for ngspice simulation.
 
-#### 1. Editing the SPICE Model File
+### 1. Editing the SPICE Model File
 After ensuring the layout grid was measured correctly, we edited the SPICE file for the inverter. This step prepares the file for further simulation and analysis. The final edited SPICE file was saved and set up for the ngspice simulation process.
 
 **Screenshots of the final edited SPICE file:**
 ![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-10.png)
 
-#### 2. Post-layout ngspice Simulations
+### 2. Post-layout ngspice Simulations
 The next step involved running the post-layout simulation using ngspice. We used the following commands to load the SPICE file and run the simulation:
 
 ```bash
@@ -1018,13 +1018,13 @@ plot y vs time a
 ![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-11.png)
 ![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-12.png)
 
-#### 3. Generated Plot
+### 3. Generated Plot
 Once the ngspice simulation was complete, the plot was generated to visualize the results.
 
 **Screenshot of the generated plot:**
 ![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-13.png)
 
-#### 4. Rise Transition Time Calculation
+### 4. Rise Transition Time Calculation
 The rise transition time was calculated by measuring the time it took for the output to rise from 20% to 80%. The results were as follows:
 
 **Rise Transition Time:**
@@ -1035,7 +1035,7 @@ The rise transition time was calculated by measuring the time it took for the ou
 ![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-20.png)
 ![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-18.png)
 
-#### 6. Rise Cell Delay Calculation
+### 5. Rise Cell Delay Calculation
 The rise cell delay was calculated by measuring the time for the output to rise from 50% to 50%, and the result was:
 
 **Rise Cell Delay:**
@@ -1044,7 +1044,6 @@ The rise cell delay was calculated by measuring the time for the output to rise 
 **Screenshots of the rise cell delay:**
 ![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-16.png)
 ![ngspice](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-17.png)
-
 
 ---
 
