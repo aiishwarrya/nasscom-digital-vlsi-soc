@@ -1192,6 +1192,139 @@ This document outlines the essential rules for designing standard cells in the S
 #### **Why These Rules Matter?**
 These guidelines form the backbone of standard cell library development, ensuring robust, scalable, and manufacturable designs for the SKY130 PDK.
 
+## Tasks done 
+
+
+### 1. Opening the Custom Inverter Layout
+#### Commands
+```bash
+# Change directory to the custom inverter design
+cd Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign
+
+# Open the custom inverter layout in Magic
+magic -T sky130A.tech sky130_inv.mag &
+```
+#### Screenshots
+- **Tracks Info of `sky130_fd_sc_hd`:**  
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-1.png)
+
+
+### 2. Setting Grid as Tracks of Locali Layer
+#### Commands for Tkcon Window
+```tcl
+# Get syntax for grid command
+help grid
+
+# Set grid values accordingly
+grid 0.46um 0.34um 0.23um 0.17um
+```
+#### Screenshots
+- **Commands Run:**  
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-2.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-3.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-4.png)
+
+
+### 3. Saving and Reopening the Layout
+#### Commands
+```tcl
+# Save the layout with a custom name
+save sky130_vsdinv.mag
+
+# Open the newly saved layout
+magic -T sky130A.tech sky130_vsdinv.mag &
+```
+#### Screenshot
+- **Newly Saved Layout:**  
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-5.png)
+
+
+### 4. Generating LEF from the Layout
+#### Commands
+```tcl
+# Write LEF file
+lef write
+```
+#### Screenshots
+- **Commands Run:**  
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-6.png)
+- **Generated LEF File:**  
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-7.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-8.png)
+
+
+### 6. Copying LEF and Library Files
+#### Commands
+```bash
+# Copy LEF file to the design's src directory
+cp sky130_vsdinv.lef ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/
+
+# List and verify the copied LEF file
+ls ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/
+
+# Copy library files
+cp libs/sky130_fd_sc_hd__* ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/
+
+# List and verify the copied library files
+ls ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/
+```
+#### Screenshot
+- **Commands Run:**  
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-10.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-11.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-12.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-13.png)
+
+
+### 7. Editing `config.tcl`
+#### Commands to Include Custom Cell
+```tcl
+set ::env(LIB_SYNTH) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__typical.lib"
+set ::env(LIB_FASTEST) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__fast.lib"
+set ::env(LIB_SLOWEST) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__slow.lib"
+set ::env(LIB_TYPICAL) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__typical.lib"
+
+set ::env(EXTRA_LEFS) [glob $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/src/*.lef]
+```
+#### Screenshot
+- **Edited `config.tcl`:**  
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-14.png)
+
+
+### 8. Running OpenLANE Flow with Custom Inverter
+#### Commands
+```bash
+# Change to OpenLANE flow directory
+cd Desktop/work/tools/openlane_working_dir/openlane
+
+# Launch OpenLANE flow in Docker
+docker
+
+# Open OpenLANE flow in interactive mode
+./flow.tcl -interactive
+
+# Load OpenLANE package
+package require openlane 0.9
+
+# Prep the design
+prep -design picorv32a
+
+# Include newly added LEF to OpenLANE flow
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+
+# Run synthesis
+run_synthesis
+```
+#### Screenshots
+- **Commands Run:**  
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-15.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-16.png)
+- **Synthesis Completed:**  
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-17.png)
+
+---
+
 
 
 
