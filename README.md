@@ -1152,7 +1152,7 @@ drc why
 
 </details>
 
-## Implementation of SKY_L1 - Lab steps to convert grid info to track info to SKY_L3 - Introduction to timing libs and steps to include new cell in synthesis
+## Implementation of SKY_L1, SKY_L2, SKY_L3
 
 ### Standard Cell Layout Rules and Requirements
 
@@ -1192,8 +1192,8 @@ This document outlines the essential rules for designing standard cells in the S
 #### **Why These Rules Matter?**
 These guidelines form the backbone of standard cell library development, ensuring robust, scalable, and manufacturable designs for the SKY130 PDK.
 
-## Tasks done 
 
+## Tasks done 
 
 ### 1. Opening the Custom Inverter Layout
 #### Commands
