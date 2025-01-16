@@ -1148,7 +1148,47 @@ drc why
 <details>
 <summary><h2><strong>📚 Theory for Day 4</strong></h2></summary>
 
+---
 
+### **SKY_L4 - Introduction to Delay Tables**  
+
+#### **Power-Aware Clock Tree Synthesis (CTS):**  
+Power-aware CTS is a specialized approach to designing clock trees in digital circuits. It focuses on minimizing power consumption while maintaining the performance of the clock tree. The goal is to reduce dynamic and leakage power without compromising clock integrity or timing accuracy. This involves balancing factors such as skew, latency, and power dissipation during the synthesis process.
+
+#### **Delay Tables - Introduction:**  
+A delay table is a structured data representation that provides delay values for various cell types under different operating conditions. It includes information about:  
+1. **Input Slew:** The rate at which the input signal changes.  
+2. **Output Load:** The load the cell drives, typically measured in capacitance.  
+3. **Timing Characteristics:** Delay values for rising and falling edges, capturing the cell’s behavior under specified conditions.  
+
+These tables help design tools accurately calculate path delays and optimize timing, ensuring the design meets performance constraints.
+
+---
+
+### **SKY_L5 - Delay Table Usage Part 1 & SKY_L6 - Delay Table Usage Part 2**  
+
+#### **Levels of Buffering**  
+Buffering is a crucial aspect of circuit design, used to:  
+1. Strengthen weak signals.  
+2. Drive larger loads efficiently.  
+3. Reduce delays by appropriately placing buffers between high-capacitance nodes.  
+
+The placement and sizing of buffers significantly influence timing and power performance.  
+
+#### **Delay Tables for Buffer Sizes**  
+Delay tables provide timing information for various buffer sizes under different conditions:  
+- **Size 1 Buffer:** A smaller buffer optimized for driving low loads with minimal power.  
+- **Size 2 Buffer:** A larger buffer capable of driving higher loads at the cost of slightly increased power and area.  
+
+Each buffer size has its own delay characteristics, captured in its respective delay table.  
+
+#### **Input Slew and Output Load Impact**  
+1. **Input Slew:** Refers to how quickly a signal transitions from low to high or vice versa. A slower slew can increase delay, while a faster slew reduces it.  
+2. **Output Load:** Represents the load the buffer drives, typically measured in capacitance. Higher loads lead to increased delay, emphasizing the importance of matching buffer strength to load requirements.  
+
+Understanding these parameters ensures efficient circuit design with optimal performance and power trade-offs.  
+
+---
 
 </details>
 
