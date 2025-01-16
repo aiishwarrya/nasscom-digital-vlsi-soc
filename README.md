@@ -1139,6 +1139,60 @@ drc why
 
 ---
 
+<div align="center">
+  
+## Section 4: Sky130 Day 4 - Pre-layout timing analysis and importance of good clock tree
+
+</div>
+
+<details>
+<summary><h2><strong>📚 Theory for Day 4</strong></h2></summary>
+
+
+
+</details>
+
+## Implementation of SKY_L1 - Lab steps to convert grid info to track info to SKY_L3 - Introduction to timing libs and steps to include new cell in synthesis
+
+### Standard Cell Layout Rules and Requirements
+
+This document outlines the essential rules for designing standard cells in the SKY130 process. Adhering to these rules ensures compatibility with automated tools, seamless routing, and compliance with design-for-manufacturing (DFM) guidelines.
+
+
+#### **Rules for Standard Cell Layout**
+
+#### 1. Input and Output Port Alignment
+- **Requirement:** Input and output ports must be located at the intersection of horizontal and vertical routing tracks.
+- **Purpose:** 
+  - Enables seamless signal routing.
+  - Ensures compatibility with the grid defined for automated place-and-route (PnR) processes.
+
+#### 2. Standard Cell Width
+- **Requirement:** The width of the standard cell must be an **odd multiple of the x-pitch** (0.46 µm for SKY130).
+- **Examples:** Valid widths include:
+  - \( 0.46 \, \mu\text{m}, 1.38 \, \mu\text{m}, 2.3 \, \mu\text{m}, \dots \)
+- **Purpose:**
+  - Maintains alignment with horizontal track spacing.
+  - Simplifies horizontal routing and ensures manufacturability.
+
+#### 3. Standard Cell Height
+- **Requirement:** The height of the standard cell must be an **even multiple of the y-pitch**.
+- **Examples:** Valid heights include:
+  - \( 0.92 \, \mu\text{m}, 1.84 \, \mu\text{m}, 2.76 \, \mu\text{m}, \dots \)
+- **Purpose:**
+  - Ensures compatibility with vertical track spacing.
+  - Facilitates power, ground, and signal routing across multiple rows of standard cells.
+
+
+#### **Purpose of These Rules:**
+1. **Manufacturability:** Ensures compliance with DFM guidelines, minimizing risks during fabrication.
+2. **Design Automation:** Simplifies integration with automated tools like synthesis, PnR, and timing analysis.
+3. **Uniformity:** Maintains consistent cell placement and connectivity across the design.
+
+#### **Why These Rules Matter?**
+These guidelines form the backbone of standard cell library development, ensuring robust, scalable, and manufacturable designs for the SKY130 PDK.
+
+
 
 
 
