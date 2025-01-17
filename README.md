@@ -1288,7 +1288,7 @@ lef write
 #### Screenshots
 **Commands Run:**  
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-6.png)
-- **Generated LEF File:**  
+**Generated LEF File:**  
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-7.png)
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-8.png)
 
@@ -1360,7 +1360,7 @@ run_synthesis
 **Commands Run:**  
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-15.png)
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-16.png)
-- **Synthesis Completed:**  
+**Synthesis Completed:**  
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-17.png)
 
 
