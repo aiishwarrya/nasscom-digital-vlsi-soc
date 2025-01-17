@@ -1245,7 +1245,7 @@ cd Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign
 magic -T sky130A.tech sky130_inv.mag &
 ```
 #### Screenshots
-- **Tracks Info of `sky130_fd_sc_hd`:**  
+**Tracks Info of `sky130_fd_sc_hd`:**  
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-1.png)
 
 
@@ -1259,7 +1259,7 @@ help grid
 grid 0.46um 0.34um 0.23um 0.17um
 ```
 #### Screenshots
-- **Commands Run:**  
+**Commands Run:**  
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-2.png)
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-3.png)
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-4.png)
@@ -1275,7 +1275,7 @@ save sky130_vsdinv.mag
 magic -T sky130A.tech sky130_vsdinv.mag &
 ```
 #### Screenshot
-- **Newly Saved Layout:**  
+**Newly Saved Layout:**  
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-5.png)
 
 
@@ -1286,7 +1286,7 @@ magic -T sky130A.tech sky130_vsdinv.mag &
 lef write
 ```
 #### Screenshots
-- **Commands Run:**  
+**Commands Run:**  
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-6.png)
 - **Generated LEF File:**  
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-7.png)
@@ -1309,7 +1309,7 @@ cp libs/sky130_fd_sc_hd__* ~/Desktop/work/tools/openlane_working_dir/openlane/de
 ls ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/
 ```
 #### Screenshot
-- **Commands Run:**  
+**Commands Run:**  
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-10.png)
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-11.png)
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-12.png)
@@ -1327,7 +1327,7 @@ set ::env(LIB_TYPICAL) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc
 set ::env(EXTRA_LEFS) [glob $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/src/*.lef]
 ```
 #### Screenshot
-- **Edited `config.tcl`:**  
+**Edited `config.tcl`:**  
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-14.png)
 
 
@@ -1357,13 +1357,116 @@ add_lefs -src $lefs
 run_synthesis
 ```
 #### Screenshots
-- **Commands Run:**  
+**Commands Run:**  
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-15.png)
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-16.png)
 - **Synthesis Completed:**  
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-17.png)
 
+
+### 9. Remove/reduce the newly introduced violations with the introduction of custom inverter cell by modifying design parameters.
+
+Noting down current design values generated before modifying parameters to improve timing
+
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-26.png)
+
+
+### 10. Removing Violations Introduced by the Custom Inverter
+
+#### Commands to View and Modify Design Parameters
+
+```tcl
+# Prep the design to update variables
+prep -design picorv32a -tag 24-03_10-03 -overwrite
+
+# Include newly added LEF file in OpenLANE flow
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+
+# Display and set values for design variables to improve timing
+echo $::env(SYNTH_STRATEGY)
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+
+echo $::env(SYNTH_BUFFERING)
+echo $::env(SYNTH_SIZING)
+set ::env(SYNTH_SIZING) 1
+
+echo $::env(SYNTH_DRIVING_CELL)
+
+# Run synthesis again with updated parameters
+run_synthesis
+```
+
+#### Screenshots
+**Merged LEF File in `/tmp` Directory:**  
+  ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-18.png)
+  
+**Commands Run:**  
+  ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-19.png)  
+
+#### Observations
+Area increased slightly, and **Worst Negative Slack (WNS)** improved to 0.
+
+#### Screenshot
+
+**Comparison of Values Before and After Update:**  
+  ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-20.png)  
+  ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-21.png)
+
+
+
+### 11. Running Floorplan and Placement for Custom Inverter Integration
+#### Commands to Run Floorplan
+```tcl
+# Run the floorplan
+run_floorplan
+```
+#### Alternate Commands for Floorplan
+```tcl
+# Commands sourced in `run_floorplan`
+init_floorplan
+place_io
+tap_decap_or
+``` 
+
+#### Commands to Run Placement
+```tcl
+# Run placement
+run_placement
+```
+#### Screenshots
+**Commands Run:**  
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-22.png) 
+
+### 12. Viewing Placement DEF in Magic
+#### Commands to Load Placement DEF in Magic
+```bash
+# Change directory to placement DEF file location
+cd ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/16-01_08-54/results/placement/
+
+# Load the placement DEF file in Magic
+magic -T ~/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech \
+lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+```
+#### Screenshots
+**Placement DEF in Magic:**  
+  ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-23.png)
+
+
+#### Command for Viewing Internal Layers of Cells
+```tcl
+# Expand layers to view internal connectivity
+expand
+```
+#### Screenshots
+**Abutment of Custom Cell with Library Cells:**  
+  ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-24.png)  
+  ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-25.png)
+
 ---
+
+
+
 
 
 
