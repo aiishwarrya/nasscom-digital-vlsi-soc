@@ -892,6 +892,11 @@ This video lab introduced the **Magic tool** and its website contents. It provid
   
 ---
 
+## SKY130_D4_SK2 - Timing analysis with ideal clocks using openSTA
+
+### SKY_L1 - Setup timing analysis and introduction to flip-flop setup time
+
+
 </details>
 
 ## Implementation of SKY_L0 - IO Placer Revision
@@ -1187,6 +1192,35 @@ Each buffer size has its own delay characteristics, captured in its respective d
 2. **Output Load:** Represents the load the buffer drives, typically measured in capacitance. Higher loads lead to increased delay, emphasizing the importance of matching buffer strength to load requirements.  
 
 Understanding these parameters ensures efficient circuit design with optimal performance and power trade-offs.  
+
+---
+
+## **SKY130_D4_SK2 - Timing Analysis with Ideal Clocks Using OpenSTA**
+
+### **SKY_L1 - Setup Timing Analysis and Introduction to Flip-Flop Setup Time**
+
+#### 1. **Introduction**
+   - This session focuses on **timing analysis using ideal clocks**, analyzing the relationship between the launch clock, capture clock, and combinational delays.  
+   - The primary goal is to ensure data stability for flip-flops by adhering to setup timing constraints.
+
+#### 2. **Timing Analysis with a Single Clock**
+   - A single clock is utilized as both the **launch clock** and **capture clock**.
+   - The main condition for timing is:  
+     - **Combinational Delay < Clock Period**  
+   - This ensures the signal reaches the capture point within the designated clock cycle.
+
+#### 3. **Introduction of a Capture Flip-Flop**
+   - A **capture flip-flop** is added to analyze more intricate timing constraints.  
+   - The updated condition becomes:  
+     - **Combinational Delay < T - S**  
+     Where:  
+     - **T**: Clock period.  
+     - **S**: Setup time of the flip-flop.
+
+#### 4. **Important Notes**
+   - **Setup Time (S):**  
+     - The minimum duration before the clock edge during which the input signal must remain stable at the flip-flop.  
+   - This timing analysis forms the foundation for future exploration of complex clock domains and timing paths.
 
 ---
 
