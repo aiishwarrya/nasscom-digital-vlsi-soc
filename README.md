@@ -1224,6 +1224,13 @@ Understanding these parameters ensures efficient circuit design with optimal per
 
 ---
 
+### **SKY_L2 - Introduction to Clock Jitter and Uncertainty**
+
+Clock jitter and clock uncertainty are crucial concepts in timing analysis, building upon the principles discussed in the previous session. Clock jitter refers to the variation in the timing of clock edges caused by factors such as power supply noise, temperature fluctuations, and process variations. On the other hand, clock uncertainty encompasses all timing variations, including jitter and skew between different clock paths. A key takeaway from this session is the concept of the **timing window**, which represents the interval during which data must meet setup and hold time requirements. This timing window ensures that the data is captured reliably, even in the presence of clock-related variations.
+
+--- 
+
+
 </details>
 
 ## Implementation of SKY_L1, SKY_L2, SKY_L3
