@@ -1573,10 +1573,10 @@ Since we have a 0 WNS (Worst Negative Slack) after the improved timing run, we w
     ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-30.png)
 
     The `pre_sta.conf` file for STA analysis is located in the `openlane` directory.
-      ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-28.png)
+      ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-29.png)
    
     The `my_base.sdc` file for STA analysis is created in the `openlane/designs/picorv32a/src` directory based on `openlane/scripts/base.sdc`.
-      ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-29.png)
+      ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-28.png)
 
 #### Optimizing Timing by Reducing Fanout
 
