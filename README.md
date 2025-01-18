@@ -34,7 +34,7 @@ Percentage\ of\ DFFs = Flop\ Ratio \times 100
 ```
 
 All logs, reports, and results for Section 1 can be found in the following run folder: 
-[design folder](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/tree/main/09-01).
+[09-01_09-59](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/tree/main/09-01).
 
 
 ---
