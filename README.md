@@ -1509,6 +1509,8 @@ expand
 
 ## Implementation of SKY130_D4_SK2 - SKY_L3, SKY_L4, SKY_L5
 
+---
+
 ### 1. Post-Synthesis Timing Analysis with OpenSTA
 
 Since we have a 0 WNS (Worst Negative Slack) after the improved timing run, we will perform timing analysis on the initial synthesis run, which contains several violations without any added parameters for timing improvement.
@@ -1626,6 +1628,137 @@ Since higher fanout causes more delay, we can reduce the fanout and re-run synth
 
    **Screenshots of Commands Run**:
    ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-33.png)
+
+
+---
+
+### 10. Timing ECO Fixes to Remove Violations
+
+To remove timing violations, we start by analyzing and optimizing timing by replacing OR gates of drive strength 2 with OR gates of drive strength 4. This process helps manage fanouts and improve slack.
+
+Start by reporting all the connections to a net using the command:
+```tcl
+report_net -connections _11672_
+```
+
+Check the command syntax for replacing cells:
+```tcl
+help replace_cell
+```
+
+Replace the cell driving 4 fanouts with a stronger drive strength:
+```tcl
+replace_cell _14510_ sky130_fd_sc_hd__or3_4
+```
+
+Generate a custom timing report to evaluate the changes:
+```tcl
+report_checks -fields {net cap slew input_pins} -digits 4
+```
+
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-34.png)
+
+Result - slack reduced.
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-35.png)
+
+Repeat the above steps for other nets experiencing similar issues. For example, for the net `_11675_`, replace the corresponding cell and generate a report:
+```tcl
+report_net -connections _11675_
+replace_cell _14514_ sky130_fd_sc_hd__or3_4
+report_checks -fields {net cap slew input_pins} -digits 4
+```
+Command runs
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-36.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-37.png)
+
+Result - slack reduced.
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-38.png)
+
+Continue to address nets like `_11643_` and `_11668_` in a similar manner to further optimize timing. Each time, replace the cell with a stronger drive strength and verify the slack reduction.
+
+this is for cell _13132_
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-39.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-40.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-41.png)
+
+this is for cell _13157_ as the delay time is 1.5317
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-42.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-43.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-44.png)
+
+
+Finally, verify that the instance `_14506_` has been replaced with the stronger drive strength OR gate:
+```tcl
+report_checks -from _29043_ -to _30440_ -through _14506_
+```
+Screenshot of replaced instance.
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-45.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-46.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-47.png)
+
+After making these changes, the worst negative slack (WNS) is reduced from -23.9000 ns to -22.6173 ns, an improvement of approximately 1.2827 ns.
+
+### 11. Replacing the Old Netlist and Running PnR Stages
+
+With the timing ECO fixes applied, we replace the old netlist with the newly generated netlist. This updated netlist will be used for the physical design flow, including floorplanning, placement, and clock tree synthesis (CTS).
+
+First, make a copy of the old netlist:
+```bash
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/25-03_18-52/results/synthesis/
+ls
+cp picorv32a.synthesis.v picorv32a.synthesis_old.v
+ls
+```
+Screenshot of commands run.
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-48.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-49.png)
+
+Overwrite the current synthesis netlist with the updated one:
+```tcl
+help write_verilog
+write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/25-03_18-52/results/synthesis/picorv32a.synthesis.v
+exit
+```
+
+Verify that the netlist has been overwritten by checking the replacement of the instance `_14506_` with the updated OR gate.
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-50.png)
+
+Once confirmed, proceed with the design flow for physical design. Prep the design again to update the necessary variables:
+```tcl
+prep -design picorv32a -tag 24-03_10-03 -overwrite
+```
+
+Include the newly added LEF files:
+```tcl
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+```
+
+Set new values for synthesis strategy and sizing:
+```tcl
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+set ::env(SYNTH_SIZING) 1
+run_synthesis
+```
+
+Proceed with the floorplan, placement, and CTS steps:
+```tcl
+init_floorplan
+place_io
+tap_decap_or
+run_placement
+unset ::env(LIB_CTS)
+run_cts
+```
+Screenshots of commands run.
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-51.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-52.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-53.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-54.png)
+
+---
+
+
   
 
 
