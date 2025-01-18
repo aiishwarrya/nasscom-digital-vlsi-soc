@@ -1509,6 +1509,125 @@ expand
 
 ## Implementation of SKY130_D4_SK2 - SKY_L3, SKY_L4, SKY_L5
 
+### 1. Post-Synthesis Timing Analysis with OpenSTA
+
+Since we have a 0 WNS (Worst Negative Slack) after the improved timing run, we will perform timing analysis on the initial synthesis run, which contains several violations without any added parameters for timing improvement.
+
+#### Steps to Invoke the OpenLANE Flow, Include New LEF, and Perform Synthesis
+
+1. **Navigate to the OpenLANE Directory**:
+   ```bash
+   cd Desktop/work/tools/openlane_working_dir/openlane
+   ```
+
+2. **Invoke OpenLANE Docker Sub-System**:
+   Since we have aliased the long Docker command to `docker`, we can invoke the OpenLANE flow Docker sub-system by running:
+   ```bash
+   docker
+   ```
+
+3. **Enter Interactive Mode in OpenLANE**:
+   ```tcl
+   ./flow.tcl -interactive
+   ```
+
+4. **Load OpenLANE Package and Prepare the Design**:
+   ```tcl
+   package require openlane 0.9
+   prep -design picorv32a
+   ```
+
+5. **Include Newly Added LEF Files**:
+   ```tcl
+   set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+   add_lefs -src $lefs
+   ```
+
+6. **Set SYNTH_SIZING Environment Variable**:
+   ```tcl
+   set ::env(SYNTH_SIZING) 1
+   ```
+
+7. **Run Synthesis**:
+   ```tcl
+   run_synthesis
+   ```
+
+   **Final Screenshot of Commands Run**:
+   ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-27.png)
+
+#### Running STA in Another Terminal
+
+1. **Navigate to the OpenLANE Directory**:
+   ```bash
+   cd Desktop/work/tools/openlane_working_dir/openlane
+   ```
+
+2. **Invoke OpenSTA with the Pre-STA Configuration**:
+   ```bash
+   sta pre_sta.conf
+   ```
+
+   **Screenshots of Commands Run**:
+    ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-31.png)
+    ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-30.png)
+
+    The `pre_sta.conf` file for STA analysis is located in the `openlane` directory.
+      ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-28.png)
+   
+    The `my_base.sdc` file for STA analysis is created in the `openlane/designs/picorv32a/src` directory based on `openlane/scripts/base.sdc`.
+      ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-29.png)
+
+#### Optimizing Timing by Reducing Fanout
+
+Since higher fanout causes more delay, we can reduce the fanout and re-run synthesis.
+
+1. **Prepare the Design Again with a New Tag**:
+   ```tcl
+   prep -design picorv32a -tag 17-01_17-45 -overwrite
+   ```
+
+2. **Include Newly Added LEF Files**:
+   ```tcl
+   set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+   add_lefs -src $lefs
+   ```
+
+3. **Set SYNTH_SIZING and SYNTH_MAX_FANOUT Environment Variables**:
+   ```tcl
+   set ::env(SYNTH_SIZING) 1
+   set ::env(SYNTH_MAX_FANOUT) 4
+   ```
+
+4. **Check the Current Value of SYNTH_DRIVING_CELL**:
+   ```tcl
+   echo $::env(SYNTH_DRIVING_CELL)
+   ```
+
+5. **Run Synthesis Again**:
+   ```tcl
+   run_synthesis
+   ```
+
+   **Final Screenshot of Commands Run**:
+   ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-32.png)
+
+#### Running STA Again in Another Terminal
+
+1. **Navigate to the OpenLANE Directory**:
+   ```bash
+   cd Desktop/work/tools/openlane_working_dir/openlane
+   ```
+
+2. **Invoke OpenSTA with the Pre-STA Configuration**:
+   ```bash
+   sta pre_sta.conf
+   ```
+
+   **Screenshots of Commands Run**:
+   ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-33.png)
+  
+
 
 
 
