@@ -1048,16 +1048,16 @@ The rise cell delay was calculated by measuring the time for the output to rise 
 
 ---
 
-# Fixing DRC Issues in Skywater Process Magic Tech File
+### Fixing DRC Issues in Skywater Process Magic Tech File
 
 This document provides step-by-step instructions to identify and correct issues in the DRC section of the Skywater process's old Magic tech file.
 
-## Reference Link
+#### Reference Link
 - Sky130 Periphery Rules: [Skywater PDK Periphery Rules](https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html)
 
-## Steps to Reproduce and Fix DRC Issues
+#### Steps to Reproduce and Fix DRC Issues
 
-### 1. Download and View Corrupted Skywater Process Magic Tech File
+#### 1. Download and View Corrupted Skywater Process Magic Tech File
 
 ```bash
 # Change to home directory
