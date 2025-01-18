@@ -1683,7 +1683,7 @@ this is for cell `_13132_`
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-40.png)
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-41.png)
 
-this is for cell _13157_ as the delay time is 1.5317
+this is for cell `_13157_` as the delay time is 1.5317
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-42.png)
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-43.png)
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-44.png)
