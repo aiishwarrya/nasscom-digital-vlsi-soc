@@ -1638,7 +1638,7 @@ To remove timing violations, we start by analyzing and optimizing timing by repl
 
 Start by reporting all the connections to a net using the command:
 ```tcl
-report_net -connections _11672_
+report_net -connections _10566_
 ```
 
 Check the command syntax for replacing cells:
@@ -1648,7 +1648,7 @@ help replace_cell
 
 Replace the cell driving 4 fanouts with a stronger drive strength:
 ```tcl
-replace_cell _14510_ sky130_fd_sc_hd__or3_4
+replace_cell _13165_ sky130_fd_sc_hd__or3_4
 ```
 
 Generate a custom timing report to evaluate the changes:
@@ -1663,8 +1663,10 @@ Result - slack reduced.
 
 Repeat the above steps for other nets experiencing similar issues. For example, for the net `_11675_`, replace the corresponding cell and generate a report:
 ```tcl
-report_net -connections _11675_
-replace_cell _14514_ sky130_fd_sc_hd__or3_4
+report_net -connections _10563_
+
+replace_cell _13161_ sky130_fd_sc_hd__or3_4
+
 report_checks -fields {net cap slew input_pins} -digits 4
 ```
 Command runs
@@ -1674,9 +1676,9 @@ Command runs
 Result - slack reduced.
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-38.png)
 
-Continue to address nets like `_11643_` and `_11668_` in a similar manner to further optimize timing. Each time, replace the cell with a stronger drive strength and verify the slack reduction.
+Continue to address nets like `_13132_` and `_13157_` in a similar manner to further optimize timing. Each time, replace the cell with a stronger drive strength and verify the slack reduction.
 
-this is for cell _13132_
+this is for cell `_13132_`
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-39.png)
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-40.png)
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-41.png)
@@ -1687,9 +1689,9 @@ this is for cell _13157_ as the delay time is 1.5317
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-44.png)
 
 
-Finally, verify that the instance `_14506_` has been replaced with the stronger drive strength OR gate:
+Finally, verify that the instance `_27762_` has been replaced with the stronger drive strength OR gate:
 ```tcl
-report_checks -from _29043_ -to _30440_ -through _14506_
+report_checks -from _27860_ -to _27762_ -through _26365_
 ```
 Screenshot of replaced instance.
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-45.png)
@@ -1704,7 +1706,7 @@ With the timing ECO fixes applied, we replace the old netlist with the newly gen
 
 First, make a copy of the old netlist:
 ```bash
-cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/25-03_18-52/results/synthesis/
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-01-17-45/results/synthesis/
 ls
 cp picorv32a.synthesis.v picorv32a.synthesis_old.v
 ls
@@ -1720,7 +1722,7 @@ write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/des
 exit
 ```
 
-Verify that the netlist has been overwritten by checking the replacement of the instance `_14506_` with the updated OR gate.
+Verify that the netlist has been overwritten by checking the replacement of the instance `_13157_` with the updated OR gate.
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-50.png)
 
 Once confirmed, proceed with the design flow for physical design. Prep the design again to update the necessary variables:
