@@ -1259,10 +1259,7 @@ The H-Tree algorithm is an effective approach for routing clock signals, ensurin
 
 #### 2. **Buffering and Repeaters:**  
    - Buffers and repeaters are strategically placed along the clock tree to drive the signal across large distances without distortion or delay.  
-   - These elements help address signal integrity challenges like cross-talk and excessive capacitance.
-
----
-Here’s the content in your GitHub format:  
+   - These elements help address signal integrity challenges like cross-talk and excessive capacitance. 
 
 ---
 
