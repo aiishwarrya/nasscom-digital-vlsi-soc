@@ -1964,6 +1964,73 @@ Design Rule Check (DRC) is a critical step in ensuring that the layout adheres t
 
 ---
 
+## SKY130_D5_SK3 - TritonRoute Features  
+
+### Overview  
+TritonRoute is a detailed routing engine that plays a critical role in completing the physical design process in modern ASIC design. It handles various challenges of routing, such as connectivity, layer management, and adherence to design rules. This session likely explores key features of TritonRoute and its methods for achieving efficient routing.
+
+---
+
+### SKY_L1 - TritonRoute Feature 1: Honors Pre-Processed Route Guides  
+
+### Overview  
+This section likely introduces how TritonRoute uses pre-processed route guides generated during global routing. These guides serve as a blueprint, ensuring the detailed routing stays within specified boundaries and adheres to design constraints.  
+
+### Key Concepts  
+1. **Pre-Processed Route Guides:**  
+   - Generated during the global routing phase.  
+   - Help TritonRoute maintain routing integrity and avoid design rule violations.  
+
+2. **Routing Optimization:**  
+   - Ensures routing is efficient and minimizes path overlap or unnecessary detours.
+
+---
+
+### SKY_L2 - TritonRoute Features 2 & 3: Inter-Guide Connectivity and Intra- & Inter-Layer Routing  
+
+### Overview  
+This section likely discusses two key capabilities of TritonRoute:  
+1. Connecting routing guides efficiently across the layout (inter-guide connectivity).  
+2. Managing signal routing within a layer (intra-layer) and between layers (inter-layer), ensuring seamless signal paths.  
+
+### Key Concepts  
+1. **Inter-Guide Connectivity:**  
+   - Ensures continuous routing between different pre-processed route guides.  
+
+2. **Intra- & Inter-Layer Routing:**  
+   - Handles routing within a single metal layer and across multiple layers.  
+   - Focuses on layer transitions using vias and adhering to DRC rules.  
+
+---
+
+### SKY_L3 - TritonRoute Method to Handle Connectivity  
+
+### Overview  
+This section likely explains how TritonRoute ensures all required connections are made while resolving conflicts and avoiding design rule violations. Advanced algorithms are used to manage signal paths effectively across the design.  
+
+### Key Concepts  
+1. **Connectivity Algorithms:**  
+   - Strategies to route signals while avoiding shorts and maintaining timing.  
+
+2. **Conflict Resolution:**  
+   - Methods to resolve congestion or overlap in the routing process.  
+
+---
+
+### SKY_L4 - Routing Topology Algorithm and Final Files List Post-Route  
+
+### Overview  
+This section likely covers the algorithms used by TritonRoute to determine routing topologies, which define the structure of the routes for optimal performance. Additionally, it might describe the final files generated after routing is completed, which are crucial for subsequent steps in the ASIC flow.  
+
+### Key Concepts  
+1. **Routing Topology Algorithm:**  
+   - Determines the shape and structure of signal paths, ensuring minimal delay and power consumption.  
+
+2. **Post-Route Files:**  
+   - Final routed layout files (e.g., DEF, GDS) and reports indicating design rule compliance and routing quality.  
+
+---
+
 </details>
 
 ## Implementation of SKY130_D5_SK2 - Power Distribution Network and routing 
