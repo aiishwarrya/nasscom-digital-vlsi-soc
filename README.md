@@ -1286,10 +1286,75 @@ Crosstalk, glitches, and clock net shielding are critical aspects of maintaining
 #### 4. **Clock Net Shielding:**  
    - Shielding techniques involve placing grounded or fixed-voltage nets near clock nets to reduce noise.  
    - These methods minimize crosstalk and ensure stable, consistent clock propagation.  
-   - Shielding also prevents glitches and helps maintain proper timing across the design.  
+   - Shielding also prevents glitches and helps maintain proper timing across the design.
+
+Here is the content in your GitHub format:  
+
+---
+
+## SKY130_D4_SK4 - Timing Analysis with Real Clocks Using OpenSTA  
+
+### Overview  
+Timing analysis is a crucial step in digital design verification, ensuring that the design meets all timing requirements. In this session, we explore the concepts of setup and hold time analysis using real clocks, focusing on their impact on circuit performance. OpenSTA is utilized to perform precise timing analysis, considering parameters such as slack, data arrival time, and data required time.  
+
+### Key Concepts  
+
+#### 1. **Setup Time Analysis Using Real Clocks:**  
+   - Setup time analysis ensures that data arrives at the capture flip-flop before the active edge of the clock.  
+   - Involves two flip-flops:  
+     - **Launch Flop:** The flip-flop that sends the data.  
+     - **Capture Flop:** The flip-flop that receives the data.  
+   - Key parameters include:  
+     - **Slack:** The difference between data required time and data arrival time.  
+     - **Data Required Time:** The time by which data must arrive to avoid a violation.  
+     - **Data Arrival Time:** The actual time at which data reaches the capture flop.  
+
+#### 2. **Hold Time Analysis Using Real Clocks:**  
+   - Hold time analysis ensures that data is stable for a minimum duration after the clock edge to be correctly latched.  
+   - Key requirement: The combinational delay must exceed the hold time of the capture flop.  
 
 ---  
 
+### SKY_L1 - Setup Timing Analysis Using Real Clocks  
+
+### Overview  
+Setup timing analysis is vital for ensuring reliable data transfer in sequential circuits. This session delves into timing verification for a single clock, emphasizing slack, data required time, and data arrival time.  
+
+### Key Concepts  
+
+#### 1. **Setup Timing Analysis:**  
+   - Ensures that data arrives at the capture flip-flop before the active edge of the clock.  
+   - Parameters analyzed include:  
+     - **Slack:** Indicates timing margin between data required and arrival times.  
+     - **Data Required Time:** The clock-dependent deadline for data arrival.  
+     - **Data Arrival Time:** The time taken for data to propagate through combinational logic.  
+
+#### 2. **Hold Timing Analysis Introduction:**  
+   - Ensures data stability after the clock edge.  
+   - Combinational delay must surpass the hold time requirement to avoid errors.
+
+---
+
+## SKY_L2 - Hold Timing Analysis Using Real Clocks  
+
+### Overview  
+Hold timing analysis ensures that data remains stable for a specified duration after the clock edge to prevent timing violations. This session concludes the discussion on hold analysis, emphasizing the importance of slack, uncertainty, and maintaining timing reliability. The next logical step involves extending setup analysis to scenarios with multiple clocks.  
+
+### Key Concepts  
+
+#### 1. **Hold Timing Analysis Conclusion:**  
+   - The focus is on ensuring that data stability is maintained during the hold time.  
+   - **Uncertainty Value:** Reflects variations in clock and data propagation, impacting hold time margins.  
+
+#### 2. **Slack in Hold Timing:**  
+   - Slack should be **positive** or **zero** to ensure no hold violations.  
+   - Negative slack indicates that the timing requirements are not met, necessitating further optimization.  
+
+#### 3. **Next Step – Setup Analysis with Multiple Clocks:**  
+   - Extending the analysis to account for interactions between multiple clocks.  
+   - Adds complexity but is critical for ensuring timing integrity in advanced designs.  
+
+---  
 
 </details>
 
