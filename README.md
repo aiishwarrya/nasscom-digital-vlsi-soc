@@ -1885,6 +1885,90 @@ Screenshots of commands run.
 
 ---
 
+<div align="center">
+  
+## Section 5: Sky130 Day 5 - Final steps for RTL2GDS using tritonRoute and openSTA
+
+</div>
+
+<details>
+<summary><h2><strong>📚 Theory for Day 5</strong></h2></summary>
+
+---
+
+## SKY130_D5_SK1 - Routing and Design Rule Check (DRC)  
+
+### Overview  
+The final step in the RTL-to-GDSII flow involves routing the connections between design components and ensuring compliance with design rules. This session focuses on the routing process, specifically Maze Routing using Lee's algorithm, and highlights the significance of performing a Design Rule Check (DRC) to verify adherence to fabrication constraints.  
+
+### Key Concepts  
+### 1. **Routing Basics:**  
+   - Routing connects different components in the layout through metal layers, following predefined paths.  
+   - TritonRoute is a tool used in the SKY130 PDK for efficient routing and DRC compliance.  
+
+### 2. **Maze Routing and Lee's Algorithm:**  
+   - Lee's algorithm, introduced in 1961, is a foundational approach to Maze Routing.  
+   - It operates on a routing grid, systematically exploring adjacent boxes to find the shortest path between two components.  
+   - This ensures efficient routing while avoiding blockages and overlapping paths.  
+
+---  
+
+### SKY_L1 - Introduction to Maze Routing Using Lee's Algorithm  
+
+### Overview  
+This session dives into the fundamentals of Maze Routing, with a focus on Lee's algorithm. It explains the routing grid concept and the step-by-step process of finding a path between two components while adhering to design rules.  
+
+### Key Concepts  
+### 1. **Routing Grid:**  
+   - The layout is divided into a grid, where each box represents a potential routing space.  
+   - Adjacent boxes are evaluated to create a path between the start and end points.  
+
+### 2. **Lee's Algorithm:**  
+   - Lee's algorithm systematically explores adjacent boxes to find the shortest path, ensuring all constraints are met.  
+   - It is particularly effective for solving routing problems in complex layouts.  
+
+---  
+
+### SKY_L2 - Lee’s Algorithm Conclusion  
+
+### Overview  
+This session concludes the discussion on Lee's algorithm by demonstrating the practical application of routing. It showcases the process of selecting paths and solving additional routing problems using the most preferred methods.  
+
+### Key Concepts  
+### 1. **Path Selection:**  
+   - The algorithm determines the optimal path by systematically evaluating available options within the routing grid.  
+   - Each step considers blockages and preferred routes to ensure an efficient design.  
+
+### 2. **Iterative Problem-Solving:**  
+   - Additional routing scenarios are presented, showcasing how Lee's algorithm adapts to different challenges.  
+   - This emphasizes its robustness and widespread preference in routing solutions.  
+
+---  
+
+### SKY_L3 - Design Rule Check  
+
+### Overview  
+Design Rule Check (DRC) is a critical step in ensuring that the layout adheres to manufacturing constraints. This session explains the typical design rules for wires and vias that must be validated before proceeding to fabrication.  
+
+### Key Concepts  
+### 1. **Wire Design Rules:**  
+   - **Minimum Wire Width:** Ensures the wire's physical dimensions meet the manufacturing requirements.  
+   - **Wire Pitch:** Specifies the distance between the centers of adjacent wires to avoid overlapping.  
+   - **Wire Spacing:** Defines the minimum distance between adjacent wires to prevent signal interference.  
+
+   Common violations, such as signal shorts, are identified during the DRC process.  
+
+### 2. **Via Design Rules:**  
+   - **Via Width:** Ensures that the vias connecting different metal layers meet the required dimensions.  
+   - **Via Spacing:** Verifies that the distance between adjacent vias complies with the design rules to avoid electrical shorts or crosstalk.  
+
+---
+
+</details>
+
+## Implementation of SKY130_D5_SK2 - Power Distribution Network and routing 
+
+
 
   
 
