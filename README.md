@@ -15,8 +15,6 @@
 <details>
 <summary><h2><strong>📚 Theory for Day 1</strong></h2></summary>
 
-Here’s the revised version without practical insights:  
-
 ---
 
 ### **SKY130_D1_SK1: How to Talk to Computers**  
