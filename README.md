@@ -2245,7 +2245,7 @@ gen_pdn
 #### Loading PDN DEF in Magic:
 ```bash
 # Change to floorplan directory
-cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_08-45/tmp/floorplan/
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-01_17-45/tmp/floorplan/
 
 # Load PDN DEF in Magic
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech \
@@ -2254,7 +2254,14 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 ```
 
 #### Screenshots of PDN Layout:
-- PDN generation logs and layout screenshots are included in the run folder.
+PDN generation logs  are included in the run folder.
+
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-1.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-2.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-3.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-4.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-5.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-6.png)
 
 
 ### 2. Perform Detailed Routing Using TritonRoute
@@ -2272,7 +2279,7 @@ run_routing
 #### Loading Routed DEF in Magic:
 ```bash
 # Change to routing results directory
-cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_08-45/results/routing/
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-01_17-45/results/routing/
 
 # Load routed DEF in Magic
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech \
@@ -2282,6 +2289,16 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 
 #### Screenshots of Routed Layout:
 - Routed layout and logs are included in the run folder.
+
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-7.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-8.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-9.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-10.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-11png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-12.png)
+
+Screenshot of fast route guide present in openlane/designs/picorv32a/runs/17-01_17-45/tmp/routing directory
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-13.png)
 
 
 ### 3. Post-Route Parasitic Extraction Using SPEF Extractor
@@ -2293,8 +2310,8 @@ cd Desktop/work/tools/SPEF_EXTRACTOR
 
 # Extract SPEF
 python3 main.py \
-    /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_08-45/tmp/merged.lef \
-    /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_08-45/results/routing/picorv32a.def
+    /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-01_17-45/tmp/merged.lef \
+    /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-01_17-45/results/routing/picorv32a.def
 ```
 
 
@@ -2306,15 +2323,15 @@ python3 main.py \
 openroad
 
 # Read required files
-read_lef /openLANE_flow/designs/picorv32a/runs/26-03_08-45/tmp/merged.lef
-read_def /openLANE_flow/designs/picorv32a/runs/26-03_08-45/results/routing/picorv32a.def
+read_lef /openLANE_flow/designs/picorv32a/runs/17-01_17-45/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/17-01_17-45/results/routing/picorv32a.def
 
 # Create and load OpenROAD database
 write_db pico_route.db
 read_db pico_route.db
 
 # Read netlist
-read_verilog /openLANE_flow/designs/picorv32a/runs/26-03_08-45/results/synthesis/picorv32a.synthesis_preroute.v
+read_verilog /openLANE_flow/designs/picorv32a/runs/17-01_17-45/results/synthesis/picorv32a.synthesis_preroute.v
 
 # Read library and link design
 read_liberty $::env(LIB_SYNTH_COMPLETE)
@@ -2322,7 +2339,7 @@ link_design picorv32a
 
 # Read SDC and SPEF
 read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
-read_spef /openLANE_flow/designs/picorv32a/runs/26-03_08-45/results/routing/picorv32a.spef
+read_spef /openLANE_flow/designs/picorv32a/runs/17-01_17-45/results/routing/picorv32a.spef
 
 # Generate timing report
 report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
@@ -2332,7 +2349,11 @@ exit
 ```
 
 #### Screenshots of Timing Analysis:
-- Timing report logs and screenshots are provided in the run folder.
+ Timing report logs are provided in the run folder.
+
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-14.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-15.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-16.png)
 
 ---
 
