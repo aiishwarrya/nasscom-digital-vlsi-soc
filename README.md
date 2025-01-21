@@ -1220,6 +1220,9 @@ drc why
 
 </div>
 
+All section 4 logs, reports and results can be found in following run folder:
+[16-01_08-54](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/tree/main/16-01_08-54)
+
 <details>
 <summary><h2><strong>📚 Theory for Day 4</strong></h2></summary>
 
