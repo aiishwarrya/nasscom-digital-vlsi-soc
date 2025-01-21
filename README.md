@@ -1616,7 +1616,7 @@ Noting down current design values generated before modifying parameters to impro
 
 ```tcl
 # Prep the design to update variables
-prep -design picorv32a -tag 24-03_10-03 -overwrite
+prep -design picorv32a -tag 16-01_08-54 -overwrite
 
 # Include newly added LEF file in OpenLANE flow
 set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
