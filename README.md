@@ -2184,7 +2184,157 @@ This section likely covers the algorithms used by TritonRoute to determine routi
 
 </details>
 
+---
+
 ## Implementation of SKY130_D5_SK2 - Power Distribution Network and routing 
+
+---
+
+This section involves the final steps in the RTL to GDS flow. It includes generating a Power Distribution Network (PDN), performing detailed routing using TritonRoute, extracting parasitics post-route, and performing timing analysis with OpenSTA. The following subsections outline the implementation and corresponding commands.
+
+#### Section 5 Tasks
+1. **Generate Power Distribution Network (PDN) and explore the PDN layout.**
+2. **Perform detailed routing using TritonRoute.**
+3. **Post-route parasitic extraction using SPEF extractor.**
+4. **Post-route OpenSTA timing analysis with extracted parasitics.**
+
+All Section 5 logs, reports, and results are located in the following run folder:
+
+### 1. Generate Power Distribution Network (PDN) and Explore the PDN Layout
+
+#### Commands to Prepare the Environment:
+```bash
+# Change directory to OpenLANE flow directory
+cd Desktop/work/tools/openlane_working_dir/openlane
+
+# Launch OpenLANE Docker
+alias docker='docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21'
+docker
+
+# Launch OpenLANE in interactive mode
+./flow.tcl -interactive
+
+# Load OpenLANE package
+package require openlane 0.9
+
+# Prepare design for 'picorv32a'
+prep -design picorv32a
+
+# Add LEF files
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+
+# Set synthesis strategy and sizing
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+set ::env(SYNTH_SIZING) 1
+
+# Run synthesis
+run_synthesis
+
+# Run floorplanning and placement
+run_floorplan
+run_placement
+
+# Run CTS (Clock Tree Synthesis)
+run_cts
+
+# Generate Power Distribution Network (PDN)
+gen_pdn
+```
+
+#### Loading PDN DEF in Magic:
+```bash
+# Change to floorplan directory
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_08-45/tmp/floorplan/
+
+# Load PDN DEF in Magic
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech \
+    lef read ../../tmp/merged.lef \
+    def read 14-pdn.def &
+```
+
+#### Screenshots of PDN Layout:
+- PDN generation logs and layout screenshots are included in the run folder.
+
+
+### 2. Perform Detailed Routing Using TritonRoute
+
+#### Command for Routing:
+```bash
+# Check environment variables
+echo $::env(CURRENT_DEF)
+echo $::env(ROUTING_STRATEGY)
+
+# Run detailed routing
+run_routing
+```
+
+#### Loading Routed DEF in Magic:
+```bash
+# Change to routing results directory
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_08-45/results/routing/
+
+# Load routed DEF in Magic
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech \
+    lef read ../../tmp/merged.lef \
+    def read picorv32a.def &
+```
+
+#### Screenshots of Routed Layout:
+- Routed layout and logs are included in the run folder.
+
+
+### 3. Post-Route Parasitic Extraction Using SPEF Extractor
+
+#### Command for SPEF Extraction:
+```bash
+# Change directory to SPEF extractor tool
+cd Desktop/work/tools/SPEF_EXTRACTOR
+
+# Extract SPEF
+python3 main.py \
+    /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_08-45/tmp/merged.lef \
+    /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-03_08-45/results/routing/picorv32a.def
+```
+
+
+### 4. Post-Route OpenSTA Timing Analysis with Extracted Parasitics
+
+#### OpenSTA Timing Analysis:
+```bash
+# Launch OpenROAD tool
+openroad
+
+# Read required files
+read_lef /openLANE_flow/designs/picorv32a/runs/26-03_08-45/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/26-03_08-45/results/routing/picorv32a.def
+
+# Create and load OpenROAD database
+write_db pico_route.db
+read_db pico_route.db
+
+# Read netlist
+read_verilog /openLANE_flow/designs/picorv32a/runs/26-03_08-45/results/synthesis/picorv32a.synthesis_preroute.v
+
+# Read library and link design
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+link_design picorv32a
+
+# Read SDC and SPEF
+read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+read_spef /openLANE_flow/designs/picorv32a/runs/26-03_08-45/results/routing/picorv32a.spef
+
+# Generate timing report
+report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+
+# Exit OpenROAD
+exit
+```
+
+#### Screenshots of Timing Analysis:
+- Timing report logs and screenshots are provided in the run folder.
+
+---
 
 
 
