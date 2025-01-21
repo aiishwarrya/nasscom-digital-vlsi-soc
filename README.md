@@ -900,7 +900,11 @@ This video lab introduced the **Magic tool** and its website contents. It provid
 
 </details>
 
+---
+
 ## Implementation of SKY_L0 - IO Placer Revision
+
+---
 
 To optimize the equidistant placement of cells during IO placement, we used the following command:
 
@@ -910,7 +914,11 @@ set ::env(FP_IO_MODE) 2
 ```
 ![input change command](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day3-1.png)
 
+---
+
 ## Implementation of SKY_L5 - Lab steps to git clone vsdstdcelldesign
+
+---
 
 This task involves cloning a GitHub repository containing a custom inverter standard cell design, exploring its layout in Magic, performing spice extraction, editing the spice model file, and running post-layout simulations.
 
@@ -956,6 +964,8 @@ This task involves cloning a GitHub repository containing a custom inverter stan
 
 ## Implementation of SKY_L8 - Lab introduction to Sky130 basic layers layout and LEF using inverter
 
+---
+
 In this lab, we explore the layout of the inverter to identify PMOS and NMOS using the `%what` command in the `tkcon.tcl` window. The focus is on analyzing the connections between the components, verifying their placement, and understanding how basic layers are represented in the layout.
 
  #### Screenshots
@@ -965,6 +975,8 @@ In this lab, we explore the layout of the inverter to identify PMOS and NMOS usi
 
 ---
 ## Implementation of SKY_L9 - Lab Steps to Create Standard Cell Layout and Extract SPICE Netlist
+
+---
 
 This lab demonstrates the process of extracting the entire standard cell layout into a SPICE netlist using commands. The focus is on converting the physical layout into a SPICE-compatible format for further simulation and analysis.
 
@@ -992,6 +1004,8 @@ ext2spice
 ---
 
 ## Implementation of SKY130_D3_SK3 
+
+---
 
 In this lab, we edited the SPICE model file to prepare it for analysis through simulation. The unit distance in the layout grid was also measured to ensure precision. Once the final SPICE file was edited, it was ready for ngspice simulation.
 
@@ -1356,10 +1370,13 @@ Hold timing analysis ensures that data remains stable for a specified duration a
 
 ---  
 
-
 </details>
 
+---
+
 ## Implementation of SKY130_D4_SK1 - SKY_L1, SKY_L2, SKY_L3
+
+---
 
 ### Standard Cell Layout Rules and Requirements
 
@@ -1636,7 +1653,7 @@ expand
 
 ---
 
-### 1. Post-Synthesis Timing Analysis with OpenSTA
+### Post-Synthesis Timing Analysis with OpenSTA
 
 Since we have a 0 WNS (Worst Negative Slack) after the improved timing run, we will perform timing analysis on the initial synthesis run, which contains several violations without any added parameters for timing improvement.
 
@@ -1757,7 +1774,7 @@ Since higher fanout causes more delay, we can reduce the fanout and re-run synth
 
 ---
 
-### 10. Timing ECO Fixes to Remove Violations
+### Timing ECO Fixes to Remove Violations
 
 To remove timing violations, we start by analyzing and optimizing timing by replacing OR gates of drive strength 2 with OR gates of drive strength 4. This process helps manage fanouts and improve slack.
 
@@ -1825,7 +1842,7 @@ Screenshot of replaced instance.
 
 After making these changes, the worst negative slack (WNS) is reduced from -23.9000 ns to -22.6173 ns, an improvement of approximately 1.2827 ns.
 
-### 11. Replacing the Old Netlist and Running PnR Stages
+### Replacing the Old Netlist and Running PnR Stages
 
 With the timing ECO fixes applied, we replace the old netlist with the newly generated netlist. This updated netlist will be used for the physical design flow, including floorplanning, placement, and clock tree synthesis (CTS).
 
@@ -1882,8 +1899,142 @@ Screenshots of commands run.
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-52.png)
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-53.png)
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-54.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-55.png)
 
 ---
+
+## Implementation of SKY130_D4_SK3 and SKY130_D4_SK4
+
+---
+
+### OpenROAD Timing Analysis with Integrated OpenSTA
+
+#### Overview  
+This section explores timing analysis post-Clock Tree Synthesis (CTS) using OpenROAD with its integrated OpenSTA. The focus is on generating timing reports with detailed insights into setup and hold checks for the picorv32a design.  
+
+#### Steps  
+
+1. **Launch OpenROAD Tool:**  
+   ```bash  
+   openroad  
+   ```  
+
+2. **Read Required Files:**  
+   ```bash  
+   read_lef /openLANE_flow/designs/picorv32a/runs/24-03_10-03/tmp/merged.lef  
+   read_def /openLANE_flow/designs/picorv32a/runs/24-03_10-03/results/cts/picorv32a.cts.def  
+   ```  
+
+3. **Create and Load Database:**  
+   ```bash  
+   write_db pico_cts.db  
+   read_db pico_cts.db  
+   ```  
+
+4. **Load Netlist and Library Files:**  
+   ```bash  
+   read_verilog /openLANE_flow/designs/picorv32a/runs/24-03_10-03/results/synthesis/picorv32a.synthesis_cts.v  
+   read_liberty $::env(LIB_SYNTH_COMPLETE)  
+   link_design picorv32a  
+   ```  
+
+5. **Set Constraints and Run Timing Checks:**  
+   ```bash  
+   read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc  
+   set_propagated_clock [all_clocks]  
+   report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4  
+   ```  
+
+6. **Exit OpenROAD Tool:**  
+   ```bash  
+   exit  
+   ```  
+
+#### Output  
+Generated a comprehensive timing report for setup and hold checks.  
+
+**Screenshots:**  
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-56.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-57.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-58.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-59.png)
+
+---
+
+### OpenROAD Timing Analysis After Modifying `CTS_CLK_BUFFER_LIST`  
+
+#### Overview  
+This section delves into exploring the impact of modifying the `CTS_CLK_BUFFER_LIST` by removing and re-adding the `sky130_fd_sc_hd__clkbuf_1` cell and re-running the Clock Tree Synthesis (CTS).  
+
+#### Steps  
+
+1. **Check and Modify `CTS_CLK_BUFFER_LIST`:**  
+   ```bash  
+   echo $::env(CTS_CLK_BUFFER_LIST)  
+   set ::env(CTS_CLK_BUFFER_LIST) [lreplace $::env(CTS_CLK_BUFFER_LIST) 0 0]  
+   echo $::env(CTS_CLK_BUFFER_LIST)  
+   ```  
+
+2. **Update Placement Definition File:**  
+   ```bash  
+   echo $::env(CURRENT_DEF)  
+   set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/24-03_10-03/results/placement/picorv32a.placement.def  
+   ```  
+
+3. **Re-Run CTS:**  
+   ```bash  
+   run_cts  
+   ```  
+
+4. **Perform Timing Analysis:**  
+    **Launch OpenROAD:**  
+     ```bash  
+     openroad  
+     ```  
+    **Load Files and Perform Analysis:**  
+     ```bash  
+     read_lef /openLANE_flow/designs/picorv32a/runs/24-03_10-03/tmp/merged.lef  
+     read_def /openLANE_flow/designs/picorv32a/runs/24-03_10-03/results/cts/picorv32a.cts.def  
+     write_db pico_cts1.db  
+     read_db pico_cts1.db  
+     read_verilog /openLANE_flow/designs/picorv32a/runs/24-03_10-03/results/synthesis/picorv32a.synthesis_cts.v  
+     read_liberty $::env(LIB_SYNTH_COMPLETE)  
+     link_design picorv32a  
+     read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc  
+     set_propagated_clock [all_clocks]  
+     ```  
+
+5. **Generate Timing Reports:**  
+   ```bash  
+   report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4  
+   report_clock_skew -hold  
+   report_clock_skew -setup  
+   ```  
+
+6. **Revert `CTS_CLK_BUFFER_LIST`:**  
+   ```bash  
+   echo $::env(CTS_CLK_BUFFER_LIST)  
+   set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_sc_hd__clkbuf_1]  
+   echo $::env(CTS_CLK_BUFFER_LIST)  
+   ```  
+
+7. **Exit OpenROAD:**  
+   ```bash  
+   exit  
+   ```  
+
+#### Output  
+Timing reports were generated to evaluate the impact of removing and re-adding the clock buffer cell on timing performance.  
+
+**Screenshots:**  
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-60.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-61.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-62.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-63.png)
+![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day4-64.png)
+
+--- 
+
 
 <div align="center">
   
