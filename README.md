@@ -1786,7 +1786,7 @@ Since higher fanout causes more delay, we can reduce the fanout and re-run synth
 
 1. **Prepare the Design Again with a New Tag**:
    ```tcl
-   prep -design picorv32a -tag 17-01_17-45 -overwrite
+   prep -design picorv32a -tag 16-01_08-54 -overwrite
    ```
 
 2. **Include Newly Added LEF Files**:
@@ -1927,7 +1927,7 @@ Verify that the netlist has been overwritten by checking the replacement of the 
 
 Once confirmed, proceed with the design flow for physical design. Prep the design again to update the necessary variables:
 ```tcl
-prep -design picorv32a -tag 24-03_10-03 -overwrite
+prep -design picorv32a -tag 16-01_08-54 -overwrite
 ```
 
 Include the newly added LEF files:
@@ -1979,8 +1979,8 @@ This section explores timing analysis post-Clock Tree Synthesis (CTS) using Open
 
 2. **Read Required Files:**  
    ```bash  
-   read_lef /openLANE_flow/designs/picorv32a/runs/24-03_10-03/tmp/merged.lef  
-   read_def /openLANE_flow/designs/picorv32a/runs/24-03_10-03/results/cts/picorv32a.cts.def  
+   read_lef /openLANE_flow/designs/picorv32a/runs/16-01_08-54/tmp/merged.lef  
+   read_def /openLANE_flow/designs/picorv32a/runs/16-01_08-54/results/cts/picorv32a.cts.def  
    ```  
 
 3. **Create and Load Database:**  
@@ -1991,7 +1991,7 @@ This section explores timing analysis post-Clock Tree Synthesis (CTS) using Open
 
 4. **Load Netlist and Library Files:**  
    ```bash  
-   read_verilog /openLANE_flow/designs/picorv32a/runs/24-03_10-03/results/synthesis/picorv32a.synthesis_cts.v  
+   read_verilog /openLANE_flow/designs/picorv32a/runs/16-01_08-54/results/synthesis/picorv32a.synthesis_cts.v  
    read_liberty $::env(LIB_SYNTH_COMPLETE)  
    link_design picorv32a  
    ```  
@@ -2036,7 +2036,7 @@ This section delves into exploring the impact of modifying the `CTS_CLK_BUFFER_L
 2. **Update Placement Definition File:**  
    ```bash  
    echo $::env(CURRENT_DEF)  
-   set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/24-03_10-03/results/placement/picorv32a.placement.def  
+   set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/16-01_08-54/results/placement/picorv32a.placement.def  
    ```  
 
 3. **Re-Run CTS:**  
@@ -2051,11 +2051,11 @@ This section delves into exploring the impact of modifying the `CTS_CLK_BUFFER_L
      ```  
     **Load Files and Perform Analysis:**  
      ```bash  
-     read_lef /openLANE_flow/designs/picorv32a/runs/24-03_10-03/tmp/merged.lef  
-     read_def /openLANE_flow/designs/picorv32a/runs/24-03_10-03/results/cts/picorv32a.cts.def  
+     read_lef /openLANE_flow/designs/picorv32a/runs/16-01_08-54/tmp/merged.lef  
+     read_def /openLANE_flow/designs/picorv32a/runs/16-01_08-54/results/cts/picorv32a.cts.def  
      write_db pico_cts1.db  
      read_db pico_cts1.db  
-     read_verilog /openLANE_flow/designs/picorv32a/runs/24-03_10-03/results/synthesis/picorv32a.synthesis_cts.v  
+     read_verilog /openLANE_flow/designs/picorv32a/runs/16-01_08-54/results/synthesis/picorv32a.synthesis_cts.v  
      read_liberty $::env(LIB_SYNTH_COMPLETE)  
      link_design picorv32a  
      read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc  
@@ -2099,6 +2099,9 @@ Timing reports were generated to evaluate the impact of removing and re-adding t
 ## Section 5: Sky130 Day 5 - Final steps for RTL2GDS using tritonRoute and openSTA
 
 </div>
+
+All section 5 logs, reports and results can be found in following run folder:
+[17-01_17-45](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/tree/main/17-01_17-45)
 
 <details>
 <summary><h2><strong>📚 Theory for Day 5</strong></h2></summary>
