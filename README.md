@@ -29,7 +29,9 @@
 - **Pads** serve as the connection points between external signals and the internal circuitry.  
 - The **core** contains the chip's primary functional components, including logic and memory.  
 - The **die** is the silicon piece that houses the integrated circuits.  
-- **IPs (Intellectual Property)** are reusable design components, such as processors and communication blocks.  
+- **IPs (Intellectual Property)** are reusable design components, such as processors and communication blocks.
+
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/core&die.png)
 
 ---
 
