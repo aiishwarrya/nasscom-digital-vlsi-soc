@@ -15,6 +15,63 @@
 <details>
 <summary><h2><strong>📚 Theory for Day 1</strong></h2></summary>
 
+Here’s the revised version without practical insights:  
+
+---
+
+### **SKY130_D1_SK1: How to Talk to Computers**  
+- Computers process instructions written in hardware description languages (HDLs) such as Verilog or VHDL.  
+- HDLs translate high-level design intentions into circuit-level logic.  
+- Synthesis tools create a bridge between human-readable HDL and physical hardware.  
+
+---
+
+### **SKY_L1: Introduction to QFN-48 Package, Chip, Pads, Core, Die, and IPs**  
+- The **QFN-48 package** encases the chip and provides connectivity via its pins.  
+- **Pads** serve as the connection points between external signals and the internal circuitry.  
+- The **core** contains the chip's primary functional components, including logic and memory.  
+- The **die** is the silicon piece that houses the integrated circuits.  
+- **IPs (Intellectual Property)** are reusable design components, such as processors and communication blocks.  
+
+---
+
+### **SKY_L2: Introduction to RISC-V and Sky130 PDK**  
+- **RISC-V** is an open-source Instruction Set Architecture (ISA) that enables modular and extensible processor designs.  
+- **Sky130 PDK (Process Design Kit)** includes design rules, standard cells, and models for the 130nm technology node, facilitating ASIC design.  
+
+---
+
+### **SKY_L3: From Software Applications to Hardware**  
+- High-level algorithms can be converted into hardware by using HDL.  
+- The transition from software to hardware involves modeling functionality in HDL and implementing it in silicon.  
+
+---
+
+### **SKY130_D1_SK2: SoC Design and OpenLANE**  
+
+### **SKY_L1: Introduction to All Components of Open-Source Digital ASIC Design**  
+- The digital ASIC design flow includes stages like **RTL**, **synthesis**, **floorplanning**, **placement**, **clock tree synthesis (CTS)**, **routing**, and **signoff**.  
+- Open-source tools provide cost-effective and accessible solutions for these stages.  
+
+---
+
+### **SKY_L2: Simplified RTL2GDS Flow**  
+- The RTL2GDS flow encompasses transforming Register Transfer Level (RTL) descriptions into a final layout in GDSII format.  
+- Open-source tools such as Yosys, Magic, and TritonRoute enable a streamlined flow.  
+
+---
+
+### **SKY_L3: Introduction to OpenLANE and Strive Chipsets**  
+- **OpenLANE** is an integrated open-source toolchain for ASIC design, offering RTL-to-GDSII automation.  
+- Strive chipsets are example designs created for learning and testing with Sky130 PDK.  
+
+---
+
+### **SKY_L4: Introduction to OpenLANE Detailed ASIC Design Flow**  
+- The OpenLANE flow includes key stages: synthesis, floorplanning, placement, CTS, routing, and signoff.  
+- Each stage generates critical intermediate files such as LEF (Library Exchange Format), DEF (Design Exchange Format), and GDSII (final layout).  
+
+---
 
 
 </details>
