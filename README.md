@@ -1,6 +1,6 @@
 <div align="center">
 
-# Digital VLSI SoC Design and Planning (8th January to 22nd January)
+![heading](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/heading.png)
 
 </div>
 
