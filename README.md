@@ -1920,7 +1920,7 @@ Screenshot of commands run.
 Overwrite the current synthesis netlist with the updated one:
 ```tcl
 help write_verilog
-write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/25-03_18-52/results/synthesis/picorv32a.synthesis.v
+write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/16-01_08-54/results/synthesis/picorv32a.synthesis.v
 exit
 ```
 
