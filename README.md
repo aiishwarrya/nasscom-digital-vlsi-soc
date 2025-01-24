@@ -225,6 +225,8 @@ Designers aim for:
 ---
 ## SKY_L2 - Concept of Pre-Placed Cells
 
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/preplaced%20cells.png)
+
 Pre-placed cells are essential blocks positioned in fixed locations during the floorplanning stage to optimize chip functionality and layout.  
 
 #### Key Characteristics:
@@ -247,6 +249,8 @@ De-coupling capacitors (decaps) are used in integrated circuits to stabilize the
 By providing a stable voltage supply, decoupling capacitors ensure consistent performance across the chip.
 
 ### Noise Margin Summary:
+
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/NMS.png)
 Noise margin is a measure of a circuit's ability to tolerate noise without compromising its logical operation.  
 - **Key Parameters:**
   - **NMH (Noise Margin High):** The difference between the minimum output high voltage and the minimum input high voltage required by the next stage.  
@@ -264,10 +268,14 @@ Power planning is a critical aspect of chip design that ensures a stable power s
 1. **Ground Bounce:**
    - Occurs when multiple circuits switch simultaneously, causing transient currents in the ground network.
    - Results in a temporary increase in ground voltage, affecting signal integrity.
+  
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/groundbounce.png)
 
 2. **Voltage Droop:**
    - Happens when the supply voltage dips below the required level due to high current demand or resistance in the power network.
    - Can lead to incorrect logic operation or circuit malfunction.
+
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/voltage%20droop.png)
 
 #### Solution: Providing Multiple VDD and VSS:
 - **Multiple Power Rails:**
@@ -388,6 +396,7 @@ Libraries and their characterization are essential for achieving efficient and a
    - **Definition**: The process of converting high-level design descriptions (HDLs) into a gate-level netlist using standard cells from the library.
    - **Role of Libraries**: Libraries provide pre-characterized cells with timing, power, and area information, which guides the synthesis process to meet design constraints.
    - **Goal**: Optimize for speed, power, and area while ensuring logical correctness.
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/library.png)
 
 #### 2. **Floorplanning**:
    - **Definition**: Laying out the chip’s basic structure by defining the placement of macros, standard cell regions, and I/O pins.
@@ -397,6 +406,7 @@ Libraries and their characterization are essential for achieving efficient and a
 #### 3. **Placement**:
    - **Definition**: Arranging standard cells and macros within the floorplan to minimize wire-length and meet timing constraints.
    - **Library Role**: Cell timing and capacitance data guide placement tools to position cells for optimal performance.
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/placement.png)
 
 #### 4. **Clock Tree Synthesis (CTS)**:
    - **Purpose**: Generate a clock distribution network that delivers the clock signal with minimal skew and optimal delay.
@@ -451,6 +461,9 @@ This task involves the creation and evaluation of a standard cell, focusing on i
 - Verified compliance with DRC and functionality through simulations.
 
 This implementation lays the groundwork for integrating custom cells into a larger design flow.
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/celldesignflow.png)
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/celldesignflow2.png)
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/celldesignflow3.png)
 
 ---
 
@@ -514,6 +527,7 @@ The characterization flow ensures that a standard cell is accurately analyzed fo
 #### Tools and Outputs:
 - **Tool Used**: GUNA software was employed for detailed characterization.  
 - **Outputs**: Timing, power, and noise characteristics were extracted and exported into `.lib` (library) files for integration into the standard-cell library.
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/guna.png)
 
 #### Summary:
 This characterization flow ensures the standard cell meets performance requirements and is ready for integration into digital design flows. GUNA aids in obtaining accurate results for timing, noise, and power analysis.
@@ -817,6 +831,7 @@ This section introduces the 16-mask CMOS fabrication process, focusing on the cr
 
 #### 2. **Create Active Regions**:  
    Define areas for transistor activity using photolithography techniques.  
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/16mask.png)
 
 #### 3. **Deposit Substances (e.g., Photoresist)**:  
    Apply a thin layer of photoresist material to the wafer's surface for pattern definition.  
@@ -829,6 +844,9 @@ This section introduces the 16-mask CMOS fabrication process, focusing on the cr
 
 #### 6. **LOCOS (Local Oxidation of Silicon)**:  
    Perform LOCOS to isolate active regions and create field oxides.  
+
+#### 7. **Sputtering**:
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/c16mask2.png)
 
 #### **Summary**:  
 The creation of active regions is a fundamental step in the CMOS fabrication process. It involves substrate preparation, photolithography, and isolation techniques like LOCOS to define transistor areas precisely.
@@ -1235,6 +1253,8 @@ All section 4 logs, reports and results can be found in following run folder:
 #### **Power-Aware Clock Tree Synthesis (CTS):**  
 Power-aware CTS is a specialized approach to designing clock trees in digital circuits. It focuses on minimizing power consumption while maintaining the performance of the clock tree. The goal is to reduce dynamic and leakage power without compromising clock integrity or timing accuracy. This involves balancing factors such as skew, latency, and power dissipation during the synthesis process.
 
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/powerawarects.png)
+
 #### **Delay Tables - Introduction:**  
 A delay table is a structured data representation that provides delay values for various cell types under different operating conditions. It includes information about:  
 1. **Input Slew:** The rate at which the input signal changes.  
@@ -1271,6 +1291,8 @@ Understanding these parameters ensures efficient circuit design with optimal per
 ---
 
 ## **SKY130_D4_SK2 - Timing Analysis with Ideal Clocks Using OpenSTA**
+
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/timinganalysis.png)
 
 ### **SKY_L1 - Setup Timing Analysis and Introduction to Flip-Flop Setup Time**
 
@@ -1313,7 +1335,9 @@ Clock Tree Synthesis (CTS) is a critical phase in digital design, where the goal
 #### Key Concepts   
 #### 1. **Clock Tree Synthesis (CTS):**   
    - CTS involves the generation of a clock distribution network to minimize skew (the timing difference between clock signals arriving at different elements).  
-   - Tools like TritonCTS are used to implement and optimize the clock tree to meet timing and power requirements.  
+   - Tools like TritonCTS are used to implement and optimize the clock tree to meet timing and power requirements.
+
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/CTS.png)
 
 #### 2. **Signal Integrity:**   
    - The integrity of the clock signal is critical to prevent timing violations.  
@@ -1351,7 +1375,9 @@ Crosstalk, glitches, and clock net shielding are critical aspects of maintaining
 #### 2. **Crosstalk and Delta Delay:**  
    - Crosstalk occurs when signals in nearby wires interfere, causing unexpected voltage variations.  
    - This interference results in delta delay, which impacts signal propagation time and can affect timing margins.  
-   - Skew caused by crosstalk disrupts synchronization between clock signals, impacting overall performance.  
+   - Skew caused by crosstalk disrupts synchronization between clock signals, impacting overall performance.
+
+![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/skew.png)
 
 #### 3. **Glitch and Its Impact:**  
    - A glitch is a temporary, unintended voltage spike caused by crosstalk or timing inconsistencies.  
