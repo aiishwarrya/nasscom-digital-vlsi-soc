@@ -30,8 +30,11 @@
 - The **core** contains the chip's primary functional components, including logic and memory.  
 - The **die** is the silicon piece that houses the integrated circuits.  
 - **IPs (Intellectual Property)** are reusable design components, such as processors and communication blocks.
+<div align="center">
 
 ![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/core&die.png)
+
+</div>
 
 ---
 
@@ -396,7 +399,11 @@ Libraries and their characterization are essential for achieving efficient and a
    - **Definition**: The process of converting high-level design descriptions (HDLs) into a gate-level netlist using standard cells from the library.
    - **Role of Libraries**: Libraries provide pre-characterized cells with timing, power, and area information, which guides the synthesis process to meet design constraints.
    - **Goal**: Optimize for speed, power, and area while ensuring logical correctness.
+<div align="center">
+
 ![ss](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/library.png)
+
+</div>
 
 #### 2. **Floorplanning**:
    - **Definition**: Laying out the chip’s basic structure by defining the placement of macros, standard cell regions, and I/O pins.
