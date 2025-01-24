@@ -2396,22 +2396,7 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 Screenshot of fast route guide present in openlane/designs/picorv32a/runs/17-01_17-45/tmp/routing directory
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-13.png)
 
-
-### 3. Post-Route Parasitic Extraction Using SPEF Extractor
-
-#### Command for SPEF Extraction:
-```bash
-# Change directory to SPEF extractor tool
-cd Desktop/work/tools/SPEF_EXTRACTOR
-
-# Extract SPEF
-python3 main.py \
-    /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-01_17-45/tmp/merged.lef \
-    /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-01_17-45/results/routing/picorv32a.def
-```
-
-
-### 4. Post-Route OpenSTA Timing Analysis with Extracted Parasitics
+### 3. Post-Route OpenSTA Timing Analysis with Extracted Parasitics
 
 #### OpenSTA Timing Analysis:
 ```bash
