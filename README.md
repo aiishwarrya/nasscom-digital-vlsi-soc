@@ -2393,7 +2393,7 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-11png)
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-12.png)
 
-Screenshot of fast route guide present in openlane/designs/picorv32a/runs/17-01_17-45/tmp/routing directory
+Screenshot of fast route guide present in `openlane/designs/picorv32a/runs/17-01_17-45/tmp/routing` directory
 ![Screenshot](https://github.com/aiishwarrya/nasscom-digital-vlsi-soc/blob/main/screenshots/day5-13.png)
 
 ### 3. Post-Route OpenSTA Timing Analysis with Extracted Parasitics
